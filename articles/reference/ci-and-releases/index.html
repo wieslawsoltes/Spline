@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="/Spline/css/lite.css">
     <script src="/Spline/js/lite-defer.js" defer></script>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="CI and Releases | Spline">
-<meta name="twitter:description" content="CI and Releases Build workflow The repository build.yml workflow restores the solution, builds in Release, packs Spline.Core, and uploads package artifacts for inspection. Release workflow The release.yml workflow is triggered by v* tags or manual dispatch. It: determines the release version builds the solution in Release packs Spline.Core publishes packages to NuGet creates a GitHub release with package artifacts attached NuGet publishing requires the NUGET_API_KEY secret in the...">
+<meta name="twitter:description" content="CI and Releases Build workflow The repository build.yml workflow restores the solution, builds in Release, packs Spline, runs the test project as part of the solution build, and uploads package artifacts for inspection. Release workflow The release.yml workflow is triggered by v* tags or manual dispatch. It: determines the release version builds the solution in Release packs Spline publishes packages to NuGet creates a GitHub release with package artifacts attached...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="CI and Releases | Spline">
 <meta property="og:title" content="CI and Releases | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="CI and Releases Build workflow The repository build.yml workflow restores the solution, builds in Release, packs Spline.Core, and uploads package artifacts for inspection. Release workflow The release.yml workflow is triggered by v* tags or manual dispatch. It: determines the release version builds the solution in Release packs Spline.Core publishes packages to NuGet creates a GitHub release with package artifacts attached NuGet publishing requires the NUGET_API_KEY secret in the...">
+<meta property="og:description" content="CI and Releases Build workflow The repository build.yml workflow restores the solution, builds in Release, packs Spline, runs the test project as part of the solution build, and uploads package artifacts for inspection. Release workflow The release.yml workflow is triggered by v* tags or manual dispatch. It: determines the release version builds the solution in Release packs Spline publishes packages to NuGet creates a GitHub release with package artifacts attached...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="CI and Releases | Spline">
   </head>
@@ -81,7 +81,9 @@
   <li id='nav-item-home2-1' class='nav-item '>
     <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
   <li id='nav-item-home2-2' class='nav-item '>
-    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline.Core/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
 </ol>
           </div>
         </div>
@@ -92,6 +94,33 @@
 <div class="container-xxl">
   <div class="row">
       <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ol id='menu-id-reference-0' class='menu menu-level0 show '>
+            <li id='menu-item-reference-1' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/' class='menu-link  '>Reference</a></span>  </li>
+            <li id='menu-item-reference-2' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/package-and-assembly/' class='menu-link  '>Package and Assembly</a></span>  </li>
+            <li id='menu-item-reference-3' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/packages/' class='menu-link  '>Packages</a></span>  </li>
+            <li id='menu-item-reference-4' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/project-structure/' class='menu-link  '>Project Structure</a></span>  </li>
+            <li id='menu-item-reference-5' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='menu-link  '>API Coverage Index</a></span>  </li>
+            <li id='menu-item-reference-6' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/testing-and-validation/' class='menu-link  '>Testing and Validation</a></span>  </li>
+            <li id='menu-item-reference-7' class='menu-item  active'>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/ci-and-releases/' class='menu-link  '>CI and Releases</a></span>  </li>
+            <li id='menu-item-reference-8' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/docs-site/' class='menu-link  '>Docs Site</a></span>  </li>
+          </ol>
+
+        </div>
+      </nav>
       <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
       <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
         <h3 class="toc-title">On this page</h3>
@@ -99,10 +128,29 @@
       </aside>
       <!-- Main content column -->
       <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
-        
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/reference/' class='breadcrumb-link  '>Reference</a>  </li>
+          <li class='breadcrumb-item  active'>
+            CI and Releases  </li>
+        </ol>
+
         <p id="lunet-results"></p>
         <!-- Toggle buttons visible only on small screens -->
         <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
           <button
             class="btn btn-outline-secondary btn-sm d-xxl-none"
             type="button"
@@ -118,18 +166,22 @@
 <h1 id="ci-and-releases">CI and Releases</h1>
 <h2 id="build-workflow">Build workflow</h2>
 <p>The repository <code>build.yml</code> workflow restores the solution, builds in <code>Release</code>,
-packs <code>Spline.Core</code>, and uploads package artifacts for inspection.</p>
+packs <code>Spline</code>, runs the test project as part of the solution build, and uploads
+package artifacts for inspection.</p>
 <h2 id="release-workflow">Release workflow</h2>
 <p>The <code>release.yml</code> workflow is triggered by <code>v*</code> tags or manual dispatch. It:</p>
 <ul>
 <li>determines the release version</li>
 <li>builds the solution in <code>Release</code></li>
-<li>packs <code>Spline.Core</code></li>
+<li>packs <code>Spline</code></li>
 <li>publishes packages to NuGet</li>
 <li>creates a GitHub release with package artifacts attached</li>
 </ul>
 <p>NuGet publishing requires the <code>NUGET_API_KEY</code> secret in the <code>nuget</code>
 environment.</p>
+<h2 id="docs-workflow">Docs workflow</h2>
+<p>The <code>docs.yml</code> workflow restores local tools, builds the Lunet articles and the
+generated API reference, and publishes <code>site/.lunet/build/www</code> to GitHub Pages.</p>
 
       </div>
   </div>

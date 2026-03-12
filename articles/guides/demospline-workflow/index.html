@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="/Spline/css/lite.css">
     <script src="/Spline/js/lite-defer.js" defer></script>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="DemoSpline Workflow | Spline">
-<meta name="twitter:description" content="DemoSpline Workflow DemoSpline is the reference application for the repository. It lives under samples/DemoSpline, depends on Spline.Core from src/Spline.Core, and provides an interactive UI for editing, loading, saving, tuning, and visualizing spline data. Typical workflow Modify reusable geometry or spline logic in Spline.Core. Build the full solution with dotnet build Spline.slnx. Run DemoSpline to validate the runtime behavior interactively. Pack Spline.Core once the reusable surface is ready to publish....">
+<meta name="twitter:description" content="DemoSpline Workflow DemoSpline is the reference application for the repository. It lives under samples/DemoSpline, depends on Spline from src/Spline, and provides an interactive UI for editing, loading, saving, tuning, and visualizing spline data. Typical workflow Modify reusable geometry or spline logic in Spline. Build the full solution with dotnet build Spline.slnx. Run DemoSpline to validate the runtime behavior interactively. Pack Spline once the reusable surface is ready to publish....">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="DemoSpline Workflow | Spline">
 <meta property="og:title" content="DemoSpline Workflow | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="DemoSpline Workflow DemoSpline is the reference application for the repository. It lives under samples/DemoSpline, depends on Spline.Core from src/Spline.Core, and provides an interactive UI for editing, loading, saving, tuning, and visualizing spline data. Typical workflow Modify reusable geometry or spline logic in Spline.Core. Build the full solution with dotnet build Spline.slnx. Run DemoSpline to validate the runtime behavior interactively. Pack Spline.Core once the reusable surface is ready to publish....">
+<meta property="og:description" content="DemoSpline Workflow DemoSpline is the reference application for the repository. It lives under samples/DemoSpline, depends on Spline from src/Spline, and provides an interactive UI for editing, loading, saving, tuning, and visualizing spline data. Typical workflow Modify reusable geometry or spline logic in Spline. Build the full solution with dotnet build Spline.slnx. Run DemoSpline to validate the runtime behavior interactively. Pack Spline once the reusable surface is ready to publish....">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="DemoSpline Workflow | Spline">
   </head>
@@ -81,7 +81,9 @@
   <li id='nav-item-home2-1' class='nav-item '>
     <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
   <li id='nav-item-home2-2' class='nav-item '>
-    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline.Core/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
 </ol>
           </div>
         </div>
@@ -92,6 +94,15 @@
 <div class="container-xxl">
   <div class="row">
       <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class='lunet-menu-async' data-lunet-menu-partial='/Spline/partials/menus/menu-guides.3c2cbbbf8686e2f43312b1ee052108fb.html' data-lunet-menu-open='menu-id-guides-0' data-lunet-menu-active='menu-item-guides-3,menu-item-guides-0'><div class='menu-loading text-body-secondary small'>Loading menu…</div></div>
+        </div>
+      </nav>
       <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
       <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
         <h3 class="toc-title">On this page</h3>
@@ -99,10 +110,29 @@
       </aside>
       <!-- Main content column -->
       <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
-        
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/guides/' class='breadcrumb-link  '>Guides</a>  </li>
+          <li class='breadcrumb-item  active'>
+            DemoSpline Workflow  </li>
+        </ol>
+
         <p id="lunet-results"></p>
         <!-- Toggle buttons visible only on small screens -->
         <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
           <button
             class="btn btn-outline-secondary btn-sm d-xxl-none"
             type="button"
@@ -117,15 +147,15 @@
 <!-- lunet:summarize -->
 <h1 id="demospline-workflow">DemoSpline Workflow</h1>
 <p><code>DemoSpline</code> is the reference application for the repository. It lives under
-<code>samples/DemoSpline</code>, depends on <code>Spline.Core</code> from <code>src/Spline.Core</code>, and
+<code>samples/DemoSpline</code>, depends on <code>Spline</code> from <code>src/Spline</code>, and
 provides an interactive UI for editing, loading, saving, tuning, and
 visualizing spline data.</p>
 <h2 id="typical-workflow">Typical workflow</h2>
 <ol>
-<li>Modify reusable geometry or spline logic in <code>Spline.Core</code>.</li>
+<li>Modify reusable geometry or spline logic in <code>Spline</code>.</li>
 <li>Build the full solution with <code>dotnet build Spline.slnx</code>.</li>
 <li>Run <code>DemoSpline</code> to validate the runtime behavior interactively.</li>
-<li>Pack <code>Spline.Core</code> once the reusable surface is ready to publish.</li>
+<li>Pack <code>Spline</code> once the reusable surface is ready to publish.</li>
 </ol>
 <h2 id="why-keep-the-demo-separate">Why keep the demo separate</h2>
 <p>Keeping <code>DemoSpline</code> outside the package surface avoids shipping desktop UI

@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="/Spline/css/lite.css">
     <script src="/Spline/js/lite-defer.js" defer></script>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Quick Start | Spline">
-<meta name="twitter:description" content="Quick Start Add the package dotnet add package Spline.Core Run the demo application dotnet run --project samples/DemoSpline/DemoSpline.csproj Minimal code example using Spline.Core; var controlPoints = new[] { new Spline.CP(new Vec2(0, 0), &quot;corner&quot;, null, null), new Spline.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null), new Spline.CP(new Vec2(100, 0), &quot;corner&quot;, null, null), }; var spline = new Spline(controlPoints, isClosed: false); spline.Solve(); spline.ComputeCurvatureBlending(); string svgPath = spline.RenderSvg();...">
+<meta name="twitter:description" content="Quick Start Add the package dotnet add package Spline Run the demo application dotnet run --project samples/DemoSpline/DemoSpline.csproj Minimal code example using Spline.Core; using SplinePath = Spline.Core.Spline; var controlPoints = new[] { new SplinePath.CP(new Vec2(0, 0), &quot;corner&quot;, null, null), new SplinePath.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null), new SplinePath.CP(new Vec2(100, 0), &quot;corner&quot;, null, null), }; var spline = new SplinePath(controlPoints, isClosed: false); spline.Solve(); spline.ComputeCurvatureBlending(); string svgPath = spline.RenderSvg();...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Quick Start | Spline">
 <meta property="og:title" content="Quick Start | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Quick Start Add the package dotnet add package Spline.Core Run the demo application dotnet run --project samples/DemoSpline/DemoSpline.csproj Minimal code example using Spline.Core; var controlPoints = new[] { new Spline.CP(new Vec2(0, 0), &quot;corner&quot;, null, null), new Spline.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null), new Spline.CP(new Vec2(100, 0), &quot;corner&quot;, null, null), }; var spline = new Spline(controlPoints, isClosed: false); spline.Solve(); spline.ComputeCurvatureBlending(); string svgPath = spline.RenderSvg();...">
+<meta property="og:description" content="Quick Start Add the package dotnet add package Spline Run the demo application dotnet run --project samples/DemoSpline/DemoSpline.csproj Minimal code example using Spline.Core; using SplinePath = Spline.Core.Spline; var controlPoints = new[] { new SplinePath.CP(new Vec2(0, 0), &quot;corner&quot;, null, null), new SplinePath.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null), new SplinePath.CP(new Vec2(100, 0), &quot;corner&quot;, null, null), }; var spline = new SplinePath(controlPoints, isClosed: false); spline.Solve(); spline.ComputeCurvatureBlending(); string svgPath = spline.RenderSvg();...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Quick Start | Spline">
   </head>
@@ -81,7 +81,9 @@
   <li id='nav-item-home2-1' class='nav-item '>
     <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
   <li id='nav-item-home2-2' class='nav-item '>
-    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline.Core/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
 </ol>
           </div>
         </div>
@@ -92,6 +94,27 @@
 <div class="container-xxl">
   <div class="row">
       <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ol id='menu-id-getting-started-0' class='menu menu-level0 show '>
+            <li id='menu-item-getting-started-1' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/getting-started/' class='menu-link  '>Getting Started</a></span>  </li>
+            <li id='menu-item-getting-started-2' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/getting-started/overview/' class='menu-link  '>Overview</a></span>  </li>
+            <li id='menu-item-getting-started-3' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/getting-started/installation/' class='menu-link  '>Installation</a></span>  </li>
+            <li id='menu-item-getting-started-4' class='menu-item  active'>
+              <span class='menu-item-row'><a href='/Spline/articles/getting-started/quick-start/' class='menu-link  '>Quick Start</a></span>  </li>
+            <li id='menu-item-getting-started-5' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/getting-started/verification/' class='menu-link  '>Verification</a></span>  </li>
+          </ol>
+
+        </div>
+      </nav>
       <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
       <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
         <h3 class="toc-title">On this page</h3>
@@ -99,10 +122,29 @@
       </aside>
       <!-- Main content column -->
       <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
-        
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/getting-started/' class='breadcrumb-link  '>Getting Started</a>  </li>
+          <li class='breadcrumb-item  active'>
+            Quick Start  </li>
+        </ol>
+
         <p id="lunet-results"></p>
         <!-- Toggle buttons visible only on small screens -->
         <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
           <button
             class="btn btn-outline-secondary btn-sm d-xxl-none"
             type="button"
@@ -117,22 +159,23 @@
 <!-- lunet:summarize -->
 <h1 id="quick-start">Quick Start</h1>
 <h2 id="add-the-package">Add the package</h2>
-<pre><code class="language-bash">dotnet add package Spline.Core
+<pre><code class="language-bash">dotnet add package Spline
 </code></pre>
 <h2 id="run-the-demo-application">Run the demo application</h2>
 <pre><code class="language-bash">dotnet run --project samples/DemoSpline/DemoSpline.csproj
 </code></pre>
 <h2 id="minimal-code-example">Minimal code example</h2>
 <pre><code class="language-csharp">using Spline.Core;
+using SplinePath = Spline.Core.Spline;
 
 var controlPoints = new[]
 {
-    new Spline.CP(new Vec2(0, 0), &quot;corner&quot;, null, null),
-    new Spline.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null),
-    new Spline.CP(new Vec2(100, 0), &quot;corner&quot;, null, null),
+    new SplinePath.CP(new Vec2(0, 0), &quot;corner&quot;, null, null),
+    new SplinePath.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null),
+    new SplinePath.CP(new Vec2(100, 0), &quot;corner&quot;, null, null),
 };
 
-var spline = new Spline(controlPoints, isClosed: false);
+var spline = new SplinePath(controlPoints, isClosed: false);
 spline.Solve();
 spline.ComputeCurvatureBlending();
 
@@ -140,6 +183,8 @@ string svgPath = spline.RenderSvg();
 </code></pre>
 <p>The resulting SVG path data can be used for rendering, export, diagnostics, or
 further geometry processing.</p>
+<p>For a broader package walkthrough, continue with
+<a href="/Spline/articles/guides/using-spline">Using Spline</a>.</p>
 
       </div>
   </div>

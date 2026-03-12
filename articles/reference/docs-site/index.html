@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="/Spline/css/lite.css">
     <script src="/Spline/js/lite-defer.js" defer></script>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Docs Site | Spline">
-<meta name="twitter:description" content="Docs Site The repository documentation site is built with Lunet and lives under site/. Local commands dotnet tool restore bash ./build-docs.sh To validate the generated output with repository-specific assertions: bash ./check-docs.sh To run a local dev server with watch mode: bash ./serve-docs.sh You can override the bind address and port with DOCS_HOST and DOCS_PORT. Deployment The docs.yml GitHub Actions workflow builds the site and deploys...">
+<meta name="twitter:description" content="Docs Site The repository documentation site is built with Lunet and lives under site/. It includes both: article-based guides and reference pages written in Markdown generated .NET API reference produced from src/Spline/Spline.csproj Local commands dotnet tool restore bash ./build-docs.sh To validate the generated output with repository-specific assertions: bash ./check-docs.sh To run a local dev server with watch mode: bash ./serve-docs.sh...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Docs Site | Spline">
 <meta property="og:title" content="Docs Site | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Docs Site The repository documentation site is built with Lunet and lives under site/. Local commands dotnet tool restore bash ./build-docs.sh To validate the generated output with repository-specific assertions: bash ./check-docs.sh To run a local dev server with watch mode: bash ./serve-docs.sh You can override the bind address and port with DOCS_HOST and DOCS_PORT. Deployment The docs.yml GitHub Actions workflow builds the site and deploys...">
+<meta property="og:description" content="Docs Site The repository documentation site is built with Lunet and lives under site/. It includes both: article-based guides and reference pages written in Markdown generated .NET API reference produced from src/Spline/Spline.csproj Local commands dotnet tool restore bash ./build-docs.sh To validate the generated output with repository-specific assertions: bash ./check-docs.sh To run a local dev server with watch mode: bash ./serve-docs.sh...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Docs Site | Spline">
   </head>
@@ -81,7 +81,9 @@
   <li id='nav-item-home2-1' class='nav-item '>
     <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
   <li id='nav-item-home2-2' class='nav-item '>
-    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline.Core/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
 </ol>
           </div>
         </div>
@@ -92,6 +94,33 @@
 <div class="container-xxl">
   <div class="row">
       <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ol id='menu-id-reference-0' class='menu menu-level0 show '>
+            <li id='menu-item-reference-1' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/' class='menu-link  '>Reference</a></span>  </li>
+            <li id='menu-item-reference-2' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/package-and-assembly/' class='menu-link  '>Package and Assembly</a></span>  </li>
+            <li id='menu-item-reference-3' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/packages/' class='menu-link  '>Packages</a></span>  </li>
+            <li id='menu-item-reference-4' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/project-structure/' class='menu-link  '>Project Structure</a></span>  </li>
+            <li id='menu-item-reference-5' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='menu-link  '>API Coverage Index</a></span>  </li>
+            <li id='menu-item-reference-6' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/testing-and-validation/' class='menu-link  '>Testing and Validation</a></span>  </li>
+            <li id='menu-item-reference-7' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/ci-and-releases/' class='menu-link  '>CI and Releases</a></span>  </li>
+            <li id='menu-item-reference-8' class='menu-item  active'>
+              <span class='menu-item-row'><a href='/Spline/articles/reference/docs-site/' class='menu-link  '>Docs Site</a></span>  </li>
+          </ol>
+
+        </div>
+      </nav>
       <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
       <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
         <h3 class="toc-title">On this page</h3>
@@ -99,10 +128,29 @@
       </aside>
       <!-- Main content column -->
       <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
-        
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/reference/' class='breadcrumb-link  '>Reference</a>  </li>
+          <li class='breadcrumb-item  active'>
+            Docs Site  </li>
+        </ol>
+
         <p id="lunet-results"></p>
         <!-- Toggle buttons visible only on small screens -->
         <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
           <button
             class="btn btn-outline-secondary btn-sm d-xxl-none"
             type="button"
@@ -117,6 +165,11 @@
 <!-- lunet:summarize -->
 <h1 id="docs-site">Docs Site</h1>
 <p>The repository documentation site is built with Lunet and lives under <code>site/</code>.</p>
+<p>It includes both:</p>
+<ul>
+<li>article-based guides and reference pages written in Markdown</li>
+<li>generated <code>.NET</code> API reference produced from <code>src/Spline/Spline.csproj</code></li>
+</ul>
 <h2 id="local-commands">Local commands</h2>
 <pre><code class="language-bash">dotnet tool restore
 bash ./build-docs.sh
@@ -128,6 +181,10 @@ bash ./build-docs.sh
 <pre><code class="language-bash">bash ./serve-docs.sh
 </code></pre>
 <p>You can override the bind address and port with <code>DOCS_HOST</code> and <code>DOCS_PORT</code>.</p>
+<h2 id="api-reference-generation">API reference generation</h2>
+<p>The API reference is generated by Lunet's <code>api.dotnet</code> integration from the
+<code>Spline</code> project in <code>Release</code> configuration. The generated output is published
+under <code>site/.lunet/build/www/api/</code>.</p>
 <h2 id="deployment">Deployment</h2>
 <p>The <code>docs.yml</code> GitHub Actions workflow builds the site and deploys
 <code>site/.lunet/build/www</code> to GitHub Pages.</p>

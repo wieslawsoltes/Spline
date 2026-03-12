@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html data-lunet-theme-mode="system" data-lunet-theme-storage-key="lunet-theme" data-lunet-css-prefix="lunet" lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="lunet 1.0.10.0">
+    <script>(function(){const root=document.documentElement;const key=root.getAttribute("data-lunet-theme-storage-key")||"lunet-theme";const fallback=root.getAttribute("data-lunet-theme-mode")||"system";let stored=null;try{stored=localStorage.getItem(key);}catch(_){stored=null;}const mode=(stored==="light"||stored==="dark"||stored==="system")?stored:fallback;const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const resolved=mode==="system"?(prefersDark?"dark":"light"):mode;root.setAttribute("data-lunet-theme-mode",mode);root.setAttribute("data-bs-theme",resolved);}());</script>
+    <link rel='icon' href='/Spline/favicon.ico' sizes='32x32'>
+    <title>Geometry Primitives | Spline</title>
+    <link rel="stylesheet" href="/Spline/css/lite.css">
+    <script src="/Spline/js/lite-defer.js" defer></script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wieslawsoltes">
+<meta name="twitter:title" content="Geometry Primitives | Spline">
+<meta name="twitter:description" content="Geometry Primitives The reusable package is built on a small set of geometry and utility types. Vec2 Vec2 is the package's 2D vector type. It provides: length through Norm() scalar products through Dot() oriented area / turning information through Cross() arithmetic operators for simple vector math CubicBezier CubicBezier evaluates and differentiates cubic segments in normalized local space. It is used for: shape evaluation and derivative estimation curvature estimation subdivision into...">
+<meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
+<meta name="twitter:image:alt" content="Geometry Primitives | Spline">
+<meta property="og:title" content="Geometry Primitives | Spline">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
+<meta property="og:description" content="Geometry Primitives The reusable package is built on a small set of geometry and utility types. Vec2 Vec2 is the package's 2D vector type. It provides: length through Norm() scalar products through Dot() oriented area / turning information through Cross() arithmetic operators for simple vector math CubicBezier CubicBezier evaluates and differentiates cubic segments in normalized local space. It is used for: shape evaluation and derivative estimation curvature estimation subdivision into...">
+<meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
+<meta property="og:image:alt" content="Geometry Primitives | Spline">
+  </head>
+  <body>
+
+    <div id="lunet" class="container">
+      <nav class="navbar navbar-expand-md sticky-top">
+        <a class="navbar-brand" href="/Spline/">
+          <img class="lunet-logo" src="/Spline/img/lunet-logo.png" alt="Spline" width="96" height="96">
+          <span class="visually-hidden">Home</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-between">
+<ol id='nav-id-home-0' class='navbar-nav nav-level0 show '>
+  <li id='nav-item-home-1' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/' class='nav-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a></span>  </li>
+  <li id='nav-item-home-2' class='nav-item  active'>
+    <span class='nav-item-row'><a href='/Spline/articles/' class='nav-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a></span>  </li>
+</ol>
+          <ol class="navbar-nav flex-grow-1" style="padding-right: 0.5rem;">
+            <li class="nav-item w-100">
+                <div class="lunet-search dropdown w-100">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input id="search-input" type="search" class="form-control" placeholder="Search... (Alt+s)" aria-label="Search" aria-controls="search-results" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-search-empty-message="Enter words to search..." data-search-no-results-message="No results found.">
+                    <ul id="search-results" class="dropdown-menu w-100 p-0" style="max-height: 50vh;" role="listbox" aria-labelledby="search-input"></ul>
+                  </div>
+                </div>
+            </li>
+          </ol>
+          <div class="d-flex align-items-center gap-2 flex-shrink-0 navbar-right">
+            <div class="dropdown">
+              <button
+                id="theme-mode-toggle"
+                class="btn btn-outline-secondary btn-sm lunet-theme-toggle dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Theme">
+                <i class="bi bi-circle-half" data-lunet-theme-toggle-icon aria-hidden="true"></i>
+                <span
+                  data-lunet-theme-toggle-label
+                  data-theme-system-label="System"
+                  data-theme-light-label="Light"
+                  data-theme-dark-label="Dark">Theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="theme-mode-toggle">
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="system"><i class="bi bi-circle-half me-2"></i>System</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="light"><i class="bi bi-sun-fill me-2"></i>Light</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="dark"><i class="bi bi-moon-stars-fill me-2"></i>Dark</button></li>
+              </ul>
+            </div>
+<ol id='nav-id-home2-0' class='navbar-nav nav-level0 show flex-shrink-0'>
+  <li id='nav-item-home2-1' class='nav-item '>
+    <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
+  <li id='nav-item-home2-2' class='nav-item '>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
+</ol>
+          </div>
+        </div>
+      </nav>
+      <div class="lunet lunet-articles">
+        <section data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-timeout="1200" data-copy-tooltip="Copy to Clipboard." data-copy-tooltip-success="Copied!" data-copy-tooltip-error="Failed to copy!">
+
+<div class="container-xxl">
+  <div class="row">
+      <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ol id='menu-id-concepts-0' class='menu menu-level0 show '>
+            <li id='menu-item-concepts-1' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/concepts/' class='menu-link  '>Concepts</a></span>  </li>
+            <li id='menu-item-concepts-2' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/concepts/library-architecture/' class='menu-link  '>Library Architecture</a></span>  </li>
+            <li id='menu-item-concepts-3' class='menu-item  active'>
+              <span class='menu-item-row'><a href='/Spline/articles/concepts/geometry-primitives/' class='menu-link  '>Geometry Primitives</a></span>  </li>
+            <li id='menu-item-concepts-4' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/concepts/curve-families-and-parameterization/' class='menu-link  '>Curve Families and Parameterization</a></span>  </li>
+            <li id='menu-item-concepts-5' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/concepts/solver-and-curvature/' class='menu-link  '>Solver and Curvature</a></span>  </li>
+            <li id='menu-item-concepts-6' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/concepts/rendering-and-hit-testing/' class='menu-link  '>Rendering and Hit Testing</a></span>  </li>
+          </ol>
+
+        </div>
+      </nav>
+      <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
+      <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
+        <h3 class="toc-title">On this page</h3>
+        <nav class="js-toc"></nav>
+      </aside>
+      <!-- Main content column -->
+      <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/concepts/' class='breadcrumb-link  '>Concepts</a>  </li>
+          <li class='breadcrumb-item  active'>
+            Geometry Primitives  </li>
+        </ol>
+
+        <p id="lunet-results"></p>
+        <!-- Toggle buttons visible only on small screens -->
+        <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
+          <button
+            class="btn btn-outline-secondary btn-sm d-xxl-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#docs-sidebar-toc"
+            aria-controls="docs-sidebar-toc"
+            aria-expanded="false"
+            aria-label="Toggle Table Of Contents">
+            On this page
+          </button>
+        </div>
+<!-- lunet:summarize -->
+<h1 id="geometry-primitives">Geometry Primitives</h1>
+<p>The reusable package is built on a small set of geometry and utility types.</p>
+<h2 id="vec2"><code>Vec2</code></h2>
+<p><code>Vec2</code> is the package's 2D vector type. It provides:</p>
+<ul>
+<li>length through <code>Norm()</code></li>
+<li>scalar products through <code>Dot()</code></li>
+<li>oriented area / turning information through <code>Cross()</code></li>
+<li>arithmetic operators for simple vector math</li>
+</ul>
+<h2 id="cubicbezier"><code>CubicBezier</code></h2>
+<p><code>CubicBezier</code> evaluates and differentiates cubic segments in normalized local
+space. It is used for:</p>
+<ul>
+<li>shape evaluation and derivative estimation</li>
+<li>curvature estimation</li>
+<li>subdivision into left and right halves</li>
+</ul>
+<h2 id="bezierpath"><code>BezierPath</code></h2>
+<p><code>BezierPath</code> collects commands in a transport-friendly form:</p>
+<ul>
+<li><code>MoveTo</code></li>
+<li><code>LineTo</code></li>
+<li><code>CurveTo</code></li>
+<li><code>ClosePath</code></li>
+<li><code>Mark</code></li>
+</ul>
+<p>The same structure is used for SVG serialization and approximate hit testing.</p>
+<h2 id="mathutils-and-polynomial"><code>MathUtils</code> and <code>Polynomial</code></h2>
+<p><code>MathUtils</code> centralizes low-level numerical helpers such as:</p>
+<ul>
+<li>angle normalization with <code>Mod2Pi</code></li>
+<li>Hermite quintic coefficient generation</li>
+<li>hypotenuse calculation</li>
+<li>tridiagonal solving for parity with the original research code</li>
+</ul>
+<p><code>Polynomial</code> is a small coefficient-based helper used in the curvature-adjusted
+rendering path.</p>
+
+      </div>
+  </div>
+</div>
+
+        </section>
+        <footer>
+          <hr>
+          <p>Copyright &copy; 2026, Wieslaw Soltes aka <a href="https://github.com/wieslawsoltes">wieslawsoltes</a> - Content licensed under the <a href="https://github.com/wieslawsoltes/Spline/blob/main/LICENSE">MIT license</a> | Site generated by <a href="https://github.com/lunet-io/lunet">lunet</a> hosted on <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>

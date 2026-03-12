@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/Spline/css/lite.css">
     <script src="/Spline/js/lite-defer.js" defer></script>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Freehand Tracing | Spline">
 <meta name="twitter:description" content="Freehand Tracing The freehand trace mode converts a raw pointer polyline into a spline using a small staged pipeline. Current parameters simplification tolerance: 2.0 pixels corner threshold: 35 degrees target spacing in smooth spans: 20.0 pixels fit tolerance: 2.5 pixels refinement iterations: 2 Pipeline The raw pointer polyline is simplified with PolylineUtils.RamerDouglasPeucker. Corners are detected with PolylineUtils.DetectCorners. Smooth spans are resampled with PolylineUtils.ResampleBySpacing. New spline control points are created as...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
@@ -81,7 +81,9 @@
   <li id='nav-item-home2-1' class='nav-item '>
     <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
   <li id='nav-item-home2-2' class='nav-item '>
-    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline.Core/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
 </ol>
           </div>
         </div>
@@ -92,6 +94,27 @@
 <div class="container-xxl">
   <div class="row">
       <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ol id='menu-id-advanced-0' class='menu menu-level0 show '>
+            <li id='menu-item-advanced-1' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/' class='menu-link  '>Advanced</a></span>  </li>
+            <li id='menu-item-advanced-2' class='menu-item  active'>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/freehand-tracing/' class='menu-link  '>Freehand Tracing</a></span>  </li>
+            <li id='menu-item-advanced-3' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/curve-grid-and-tuning/' class='menu-link  '>Curve Grid and Tuning</a></span>  </li>
+            <li id='menu-item-advanced-4' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/numerical-behavior/' class='menu-link  '>Numerical Behavior</a></span>  </li>
+            <li id='menu-item-advanced-5' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/testing-and-parity/' class='menu-link  '>Testing and Parity</a></span>  </li>
+          </ol>
+
+        </div>
+      </nav>
       <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
       <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
         <h3 class="toc-title">On this page</h3>
@@ -99,10 +122,29 @@
       </aside>
       <!-- Main content column -->
       <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
-        
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/advanced/' class='breadcrumb-link  '>Advanced</a>  </li>
+          <li class='breadcrumb-item  active'>
+            Freehand Tracing  </li>
+        </ol>
+
         <p id="lunet-results"></p>
         <!-- Toggle buttons visible only on small screens -->
         <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
           <button
             class="btn btn-outline-secondary btn-sm d-xxl-none"
             type="button"

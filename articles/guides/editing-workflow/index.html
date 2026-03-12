@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="/Spline/css/lite.css">
     <script src="/Spline/js/lite-defer.js" defer></script>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Editing Workflow | Spline">
-<meta name="twitter:description" content="Editing Workflow DemoSpline is designed as the interactive validation host for Spline.Core. Core editing gestures Click to add a new corner point. Alt+Click or click-drag to add a smooth point. Shift+Click to extend the current point selection. Double-click to toggle a point between smooth and corner behavior. Drag tangent handles to set explicit tangents. Shift+Drag on a tangent handle to constrain it to axis-aligned directions....">
+<meta name="twitter:description" content="Editing Workflow DemoSpline is designed as the interactive validation host for Spline. Core editing gestures Click to add a new corner point. Alt+Click or click-drag to add a smooth point. Shift+Click to extend the current point selection. Double-click to toggle a point between smooth and corner behavior. Drag tangent handles to set explicit tangents. Shift+Drag on a tangent handle to constrain it to axis-aligned directions....">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Editing Workflow | Spline">
 <meta property="og:title" content="Editing Workflow | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Editing Workflow DemoSpline is designed as the interactive validation host for Spline.Core. Core editing gestures Click to add a new corner point. Alt+Click or click-drag to add a smooth point. Shift+Click to extend the current point selection. Double-click to toggle a point between smooth and corner behavior. Drag tangent handles to set explicit tangents. Shift+Drag on a tangent handle to constrain it to axis-aligned directions....">
+<meta property="og:description" content="Editing Workflow DemoSpline is designed as the interactive validation host for Spline. Core editing gestures Click to add a new corner point. Alt+Click or click-drag to add a smooth point. Shift+Click to extend the current point selection. Double-click to toggle a point between smooth and corner behavior. Drag tangent handles to set explicit tangents. Shift+Drag on a tangent handle to constrain it to axis-aligned directions....">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Editing Workflow | Spline">
   </head>
@@ -81,7 +81,9 @@
   <li id='nav-item-home2-1' class='nav-item '>
     <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
   <li id='nav-item-home2-2' class='nav-item '>
-    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline.Core/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
 </ol>
           </div>
         </div>
@@ -92,6 +94,15 @@
 <div class="container-xxl">
   <div class="row">
       <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class='lunet-menu-async' data-lunet-menu-partial='/Spline/partials/menus/menu-guides.3c2cbbbf8686e2f43312b1ee052108fb.html' data-lunet-menu-open='menu-id-guides-0' data-lunet-menu-active='menu-item-guides-8,menu-item-guides-0'><div class='menu-loading text-body-secondary small'>Loading menu…</div></div>
+        </div>
+      </nav>
       <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
       <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
         <h3 class="toc-title">On this page</h3>
@@ -99,10 +110,29 @@
       </aside>
       <!-- Main content column -->
       <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
-        
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/guides/' class='breadcrumb-link  '>Guides</a>  </li>
+          <li class='breadcrumb-item  active'>
+            Editing Workflow  </li>
+        </ol>
+
         <p id="lunet-results"></p>
         <!-- Toggle buttons visible only on small screens -->
         <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
           <button
             class="btn btn-outline-secondary btn-sm d-xxl-none"
             type="button"
@@ -116,7 +146,7 @@
         </div>
 <!-- lunet:summarize -->
 <h1 id="editing-workflow">Editing Workflow</h1>
-<p><code>DemoSpline</code> is designed as the interactive validation host for <code>Spline.Core</code>.</p>
+<p><code>DemoSpline</code> is designed as the interactive validation host for <code>Spline</code>.</p>
 <h2 id="core-editing-gestures">Core editing gestures</h2>
 <ul>
 <li>Click to add a new corner point.</li>
