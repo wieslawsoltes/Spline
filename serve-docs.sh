@@ -6,6 +6,7 @@ HOST="${DOCS_HOST:-127.0.0.1}"
 PORT="${DOCS_PORT:-8080}"
 
 clean_docs_outputs() {
+    find "${SCRIPT_DIR}/src" -path '*/obj/Release/*/*.api.json' -delete
     rm -rf "${SCRIPT_DIR}/site/.lunet/build/cache" \
            "${SCRIPT_DIR}/site/.lunet/build/www"
 }

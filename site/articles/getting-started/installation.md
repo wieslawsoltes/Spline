@@ -20,10 +20,25 @@ dotnet restore Spline.slnx
 dotnet build Spline.slnx
 ```
 
+## Run the sample app
+
+```bash
+dotnet run --project samples/DemoSpline/DemoSpline.csproj
+```
+
 ## Create a local package
 
 ```bash
-dotnet pack src/Spline.Core/Spline.Core.csproj -c Release -o artifacts/packages
+dotnet pack src/Spline/Spline.csproj -c Release -o artifacts/packages
 ```
 
 This produces both `.nupkg` and `.snupkg` outputs under `artifacts/packages`.
+
+## Build the docs site
+
+```bash
+bash ./check-docs.sh
+```
+
+This builds the Lunet site, runs repository-specific checks, and validates the
+generated API documentation.

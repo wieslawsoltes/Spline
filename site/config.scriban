@@ -6,12 +6,13 @@ site_project_baseurl = "https://wieslawsoltes.github.io"
 site_project_basepath = environment == "dev" ? "" : "/Spline"
 site_project_name = "Spline"
 site_project_description = "Reusable spline geometry for .NET with an Avalonia-based reference application."
-site_project_package_id = "Spline.Core"
+site_project_package_id = "Spline"
 site_project_github_user = "wieslawsoltes"
 site_project_github_repo = "Spline"
 site_project_owner_name = "Wieslaw Soltes"
 site_project_owner_alias = "wieslawsoltes"
 site_project_owner_url = "https://github.com/wieslawsoltes"
+site_project_twitter_user = "wieslawsoltes"
 site_project_content_license_name = "MIT"
 site_project_content_license_url = "https://github.com/wieslawsoltes/Spline/blob/main/LICENSE"
 template_footer_content_license_html = $"- Content licensed under the <a href=\"{site_project_content_license_url}\">MIT license</a>"
@@ -31,8 +32,10 @@ with bundle "lite"
     css tocbot "/dist/tocbot.css"
     css "/css/prism.css"
     css "/css/template-main.css"
+    css "/css/site-overrides.css"
 
     js "/modules/menus/lunet-menu-async.js"
+    js "/modules/api/dotnet/lunet-api-dotnet-ui.js"
     js bootstrap "/dist/js/bootstrap.bundle.min.js"
     js anchorjs "/anchor.min.js"
     js tocbot "/dist/tocbot.min.js"
@@ -58,4 +61,21 @@ with attributes
     match "/**/*.md" {
         bundle: "lite"
     }
+end
+
+with api.dotnet
+    title = "Spline .NET API Reference"
+    path = "/api"
+    menu_name = "api"
+    menu_title = "API Reference"
+    config = "Release"
+    properties = {
+        TargetFramework: "net9.0"
+    }
+    projects = [
+        {
+            name: "Spline",
+            path: "../src/Spline/Spline.csproj"
+        }
+    ]
 end

@@ -5,7 +5,7 @@ description: Editing commands and interaction model in DemoSpline.
 
 # Editing Workflow
 
-`DemoSpline` is designed as the interactive validation host for `Spline.Core`.
+`DemoSpline` is designed as the interactive validation host for `Spline`.
 
 ## Core editing gestures
 

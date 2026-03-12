@@ -4,4 +4,5 @@ home:
 
 home2:
   - {url: "https://github.com/wieslawsoltes/Spline", title: '<i class="bi bi-github"></i> GitHub', link_class: btn btn-info}
-  - {url: "https://www.nuget.org/packages/Spline.Core/", title: '<i class="bi bi-box-seam"></i> NuGet', link_class: btn btn-primary}
+  - {url: "https://www.nuget.org/packages/Spline/", title: '<i class="bi bi-box-seam"></i> NuGet', link_class: btn btn-primary}
+  - {path: articles/reference/api-coverage-index.md, title: '<i class="bi bi-journal-code"></i> API', link_class: btn btn-secondary}

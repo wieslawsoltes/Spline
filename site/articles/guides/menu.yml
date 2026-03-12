@@ -1,0 +1,11 @@
+guides:
+  - {path: readme.md, title: "Guides"}
+  - {path: using-spline.md, title: "Using Spline"}
+  - {path: demospline-workflow.md, title: "DemoSpline Workflow"}
+  - {path: rendering-and-svg.md, title: "Rendering and SVG Export"}
+  - {path: hit-testing-and-editing.md, title: "Hit Testing and Editing"}
+  - {path: curve-grid-and-serialization.md, title: "Curve Grid and Serialization"}
+  - {path: json-format.md, title: "JSON Format"}
+  - {path: editing-workflow.md, title: "Editing Workflow"}
+  - {path: tuner-window.md, title: "Tuner Window"}
+  - {path: migration-from-spline-core.md, title: "Migration from Spline.Core"}

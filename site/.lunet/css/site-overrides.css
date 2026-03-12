@@ -1,0 +1,182 @@
+/* Spline docs polish and wider content layout. */
+
+:root {
+  --spline-accent: #0f766e;
+  --spline-accent-strong: #115e59;
+  --spline-accent-soft: #dff7f3;
+  --spline-highlight: #14b8a6;
+  --spline-card-radius: 14px;
+  --spline-shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+  --spline-shadow-strong: 0 18px 42px rgba(15, 23, 42, 0.14);
+}
+
+:root[data-bs-theme="dark"] {
+  --spline-accent: #2dd4bf;
+  --spline-accent-strong: #5eead4;
+  --spline-accent-soft: rgba(20, 184, 166, 0.14);
+  --spline-highlight: #67e8f9;
+  --spline-shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.28);
+  --spline-shadow-strong: 0 20px 44px rgba(0, 0, 0, 0.38);
+}
+
+body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--spline-accent) 14%, transparent), transparent 38%),
+    radial-gradient(circle at bottom left, color-mix(in srgb, var(--spline-highlight) 10%, transparent), transparent 32%);
+}
+
+#lunet {
+  max-width: 1520px;
+}
+
+#lunet .navbar {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--bs-border-color) 82%, transparent);
+  backdrop-filter: saturate(120%) blur(6px);
+}
+
+#lunet li.nav-item.active > .nav-item-row > .nav-link,
+#lunet .menu-item.active > .menu-item-row > .menu-link {
+  color: var(--spline-accent-strong);
+  font-weight: 600;
+}
+
+#docs-sidebar-menu.menu-sidebar,
+#docs-sidebar-toc.menu-sidebar {
+  max-height: calc(100vh - 6.25rem);
+  overflow: auto;
+  padding-bottom: 1rem;
+  border: 1px solid color-mix(in srgb, var(--bs-border-color) 80%, transparent);
+  border-radius: var(--spline-card-radius);
+  box-shadow: var(--spline-shadow-soft);
+}
+
+#docs-sidebar-menu .offcanvas-body,
+#docs-sidebar-toc {
+  background: color-mix(in srgb, var(--bs-body-bg) 94%, var(--spline-accent-soft));
+}
+
+#lunet .lunet-articles .js-toc-content,
+#lunet .lunet-api .js-toc-content {
+  background: color-mix(in srgb, var(--bs-body-bg) 95%, var(--spline-accent-soft));
+  border: 1px solid color-mix(in srgb, var(--bs-border-color) 80%, transparent);
+  border-radius: var(--spline-card-radius);
+  padding: 1.35rem 1.45rem 1.55rem;
+  box-shadow: var(--spline-shadow-soft);
+}
+
+#lunet .lunet-api .js-toc-content {
+  max-width: none;
+}
+
+#lunet pre[class*="language-"],
+#lunet code {
+  overflow-wrap: anywhere;
+}
+
+#lunet table {
+  display: block;
+  overflow-x: auto;
+}
+
+#lunet h1,
+#lunet h2,
+#lunet h3 {
+  scroll-margin-top: 7rem;
+}
+
+#lunet :focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--spline-highlight) 75%, white);
+  outline-offset: 2px;
+}
+
+.lunet-home .container {
+  max-width: 1180px;
+}
+
+.spline-hero {
+  border: 1px solid color-mix(in srgb, var(--bs-border-color) 78%, transparent);
+  border-radius: 18px;
+  padding: clamp(1.4rem, 2.2vw, 2.2rem);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--spline-accent) 16%, transparent), transparent 44%),
+    color-mix(in srgb, var(--bs-body-bg) 92%, white);
+  box-shadow: var(--spline-shadow-strong);
+}
+
+.spline-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--spline-accent-strong);
+}
+
+.spline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.spline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.spline-card {
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--bs-border-color) 80%, transparent);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  background: color-mix(in srgb, var(--bs-body-bg) 94%, var(--spline-accent-soft));
+  box-shadow: var(--spline-shadow-soft);
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.spline-card:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--spline-accent) 45%, var(--bs-border-color));
+  box-shadow: var(--spline-shadow-strong);
+}
+
+.api-dotnet-member-filter {
+  margin: 1rem 0 1.15rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--bs-border-color) 80%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bs-body-bg) 94%, var(--spline-accent-soft));
+}
+
+.api-dotnet-member-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.api-dotnet-member-filter-label {
+  font-weight: 600;
+  margin: 0;
+}
+
+.api-dotnet-member-filter-input {
+  min-width: min(420px, 100%);
+  flex: 1 1 320px;
+}
+
+.api-dotnet-definition,
+.api-dotnet-parameter {
+  border: 1px solid color-mix(in srgb, var(--bs-border-color) 80%, transparent);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  background: color-mix(in srgb, var(--bs-body-bg) 96%, var(--spline-accent-soft));
+}

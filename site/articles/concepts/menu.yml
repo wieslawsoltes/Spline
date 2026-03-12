@@ -1,0 +1,7 @@
+concepts:
+  - {path: readme.md, title: "Concepts"}
+  - {path: library-architecture.md, title: "Library Architecture"}
+  - {path: geometry-primitives.md, title: "Geometry Primitives"}
+  - {path: curve-families-and-parameterization.md, title: "Curve Families and Parameterization"}
+  - {path: solver-and-curvature.md, title: "Solver and Curvature"}
+  - {path: rendering-and-hit-testing.md, title: "Rendering and Hit Testing"}

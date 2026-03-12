@@ -9,7 +9,7 @@ The repository is split into three main areas.
 
 ## Source
 
-- `src/Spline.Core/` contains the reusable package code.
+- `src/Spline/` contains the reusable package code.
 
 ## Samples
 
@@ -25,5 +25,6 @@ The repository is split into three main areas.
 ## Build entry points
 
 - solution: `Spline.slnx`
-- package: `src/Spline.Core/Spline.Core.csproj`
+- package: `src/Spline/Spline.csproj`
 - sample app: `samples/DemoSpline/DemoSpline.csproj`
+- tests: `tests/Spline.Tests/Spline.Tests.csproj`

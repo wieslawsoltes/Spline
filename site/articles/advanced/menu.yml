@@ -1,0 +1,6 @@
+advanced:
+  - {path: readme.md, title: "Advanced"}
+  - {path: freehand-tracing.md, title: "Freehand Tracing"}
+  - {path: curve-grid-and-tuning.md, title: "Curve Grid and Tuning"}
+  - {path: numerical-behavior.md, title: "Numerical Behavior"}
+  - {path: testing-and-parity.md, title: "Testing and Parity"}

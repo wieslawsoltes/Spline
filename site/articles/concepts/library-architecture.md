@@ -1,11 +1,11 @@
 ---
 title: Library Architecture
-description: High-level structure of the reusable Spline.Core package.
+description: High-level structure of the reusable Spline package.
 ---
 
 # Library Architecture
 
-`Spline.Core` is structured around a small set of geometry responsibilities that
+`Spline` is structured around a small set of geometry responsibilities that
 can be reused without any Avalonia dependency.
 
 ## Core building blocks

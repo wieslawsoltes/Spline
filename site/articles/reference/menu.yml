@@ -1,0 +1,9 @@
+reference:
+  - {path: readme.md, title: "Reference"}
+  - {path: package-and-assembly.md, title: "Package and Assembly"}
+  - {path: packages.md, title: "Packages"}
+  - {path: project-structure.md, title: "Project Structure"}
+  - {path: api-coverage-index.md, title: "API Coverage Index"}
+  - {path: testing-and-validation.md, title: "Testing and Validation"}
+  - {path: ci-and-releases.md, title: "CI and Releases"}
+  - {path: docs-site.md, title: "Docs Site"}

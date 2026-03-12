@@ -1,6 +1,6 @@
 ---
 title: Rendering and Hit Testing
-description: Path generation, SVG export, and hit testing in Spline.Core.
+description: Path generation, SVG export, and hit testing in Spline.
 ---
 
 # Rendering and Hit Testing

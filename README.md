@@ -9,25 +9,27 @@ reference application. The codebase is structured so the spline engine can be
 shipped independently as a NuGet package, while `DemoSpline` remains a desktop
 application for interactive exploration, tuning, and validation.
 
+The NuGet package ID is `Spline`. The public namespace remains `Spline.Core`.
+
 ## NuGet Packages
 
 | Package | Description | NuGet | Downloads |
 | --- | --- | --- | --- |
-| [`Spline.Core`](https://www.nuget.org/packages/Spline.Core/) | Reusable spline geometry, Bezier path generation, curvature helpers, curve-grid interpolation, and headless polyline simplification utilities. | [![NuGet](https://img.shields.io/nuget/v/Spline.Core?logo=nuget)](https://www.nuget.org/packages/Spline.Core/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Spline.Core?logo=nuget&label=downloads)](https://www.nuget.org/packages/Spline.Core/) |
+| [`Spline`](https://www.nuget.org/packages/Spline/) | Reusable spline geometry, Bezier path generation, curvature helpers, curve-grid interpolation, and headless polyline simplification utilities. | [![NuGet](https://img.shields.io/nuget/v/Spline?logo=nuget)](https://www.nuget.org/packages/Spline/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Spline?logo=nuget&label=downloads)](https://www.nuget.org/packages/Spline/) |
 
 ## Highlights
 
-- `Spline.Core` contains publishable, non-UI spline and Bezier functionality.
+- `Spline` contains publishable, non-UI spline and Bezier functionality.
 - `DemoSpline` provides an Avalonia desktop front end for editing, visualization, and experimentation.
 - GitHub Actions workflows are included for CI validation, NuGet publishing, and GitHub release creation.
-- A Lunet-based documentation site is included for project, package, and workflow documentation.
+- A Lunet-based documentation site is included for conceptual docs, workflow docs, and generated API reference.
 - NuGet symbol packages are produced alongside the main package for debugging support.
 
 ## Repository Layout
 
 - `Spline.slnx`: solution entry point for the repository
-- `src/Spline.Core/`: reusable and packable spline library
-- `samples/DemoSpline/`: Avalonia desktop application built on top of `Spline.Core`
+- `src/Spline/`: reusable and packable spline library
+- `samples/DemoSpline/`: Avalonia desktop application built on top of `Spline`
 - `.github/workflows/`: CI and release automation
 - `site/`: Lunet documentation site content and navigation
 
@@ -36,8 +38,10 @@ application for interactive exploration, tuning, and validation.
 ### Install the package
 
 ```bash
-dotnet add package Spline.Core
+dotnet add package Spline
 ```
+
+Use `using Spline.Core;` in consumer code.
 
 ### Build the repository
 
@@ -54,7 +58,7 @@ dotnet run --project samples/DemoSpline/DemoSpline.csproj
 ### Create local packages
 
 ```bash
-dotnet pack src/Spline.Core/Spline.Core.csproj -o artifacts/packages
+dotnet pack src/Spline/Spline.csproj -o artifacts/packages
 ```
 
 ### Build documentation locally
@@ -73,12 +77,26 @@ bash ./serve-docs.sh
 
 The repository includes two GitHub Actions workflows:
 
-- `build.yml` restores, builds, and packs `Spline.Core` on pushes and pull requests.
+- `build.yml` restores, builds, and packs `Spline` on pushes and pull requests.
 - `release.yml` builds a tagged release, publishes NuGet packages, and creates a GitHub release with package artifacts attached.
 - `docs.yml` builds the Lunet site and deploys it to GitHub Pages.
 
+The docs site includes article-based documentation and generated API docs for
+the `Spline.Core` namespace.
+
 For NuGet publishing, configure the `NUGET_API_KEY` secret in the `nuget`
 GitHub environment.
+
+## Upstream and Credits
+
+This repository is an Avalonia/.NET port and packaging of the spline research
+work originally published by [Raph Levien](https://levien.com) in
+[`raphlinus/spline-research`](https://github.com/raphlinus/spline-research).
+
+Credit for the original spline research, algorithms, and reference
+implementation belongs to Raph Levien. This repository adapts that work into a
+reusable .NET library, an Avalonia sample application, NuGet packaging, and
+project documentation.
 
 ## License
 

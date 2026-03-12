@@ -5,10 +5,12 @@ description: Publishable packages in the repository.
 
 # Packages
 
-## Spline.Core
+## Spline
 
-- Package ID: `Spline.Core`
-- Project: `src/Spline.Core/Spline.Core.csproj`
+- Package ID: `Spline`
+- Project: `src/Spline/Spline.csproj`
+- Assembly: `Spline.dll`
+- Public namespace: `Spline.Core`
 - Current repository packaging target: `net9.0`
 - Artifacts: `.nupkg` and `.snupkg`
 

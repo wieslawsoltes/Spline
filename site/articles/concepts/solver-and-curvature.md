@@ -1,6 +1,6 @@
 ---
 title: Solver and Curvature
-description: How Spline.Core computes tangents and curvature-aware segments.
+description: How Spline computes tangents and curvature-aware segments.
 ---
 
 # Solver and Curvature
