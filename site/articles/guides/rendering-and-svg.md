@@ -9,11 +9,12 @@ The main package workflow ends in either `BezierPath` output or SVG path text.
 
 ## Basic flow
 
-1. Create `Spline.Core.Spline.CP` control points.
-2. Construct a `Spline.Core.Spline`.
-3. Call `Solve()`.
-4. Optionally call `ComputeCurvatureBlending()`.
-5. Render with `Render()` or `RenderSvg()`.
+1. Import `using Spline;` and optionally `using SplinePath = global::Spline.Spline;`.
+2. Create `SplinePath.CP` control points.
+3. Construct a `SplinePath`.
+4. Call `Solve()`.
+5. Optionally call `ComputeCurvatureBlending()`.
+6. Render with `Render()` or `RenderSvg()`.
 
 ## Object output
 

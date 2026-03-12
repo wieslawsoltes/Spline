@@ -12,10 +12,11 @@ reusable spline engine without bringing the Avalonia UI layer along with it.
 
 - NuGet package ID: `Spline`
 - Assembly: `Spline.dll`
-- Public namespace: `Spline.Core`
+- Public namespace: `Spline`
 
-The package name was simplified to `Spline`, but the namespace remains
-`Spline.Core` so existing code can continue using the same API surface.
+The package, assembly, and public namespace are aligned as `Spline`. Because
+the namespace and the main spline type now share the same identifier, an alias
+such as `using SplinePath = global::Spline.Spline;` keeps consumer code clear.
 
 ## Included responsibilities
 
@@ -39,8 +40,8 @@ NuGet package and a symbol package during `dotnet pack`.
 ## Typical consumer flow
 
 ```csharp
-using Spline.Core;
-using SplinePath = Spline.Core.Spline;
+using Spline;
+using SplinePath = global::Spline.Spline;
 
 var controlPoints = new[]
 {

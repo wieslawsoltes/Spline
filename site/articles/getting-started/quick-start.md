@@ -20,8 +20,8 @@ dotnet run --project samples/DemoSpline/DemoSpline.csproj
 ## Minimal code example
 
 ```csharp
-using Spline.Core;
-using SplinePath = Spline.Core.Spline;
+using Spline;
+using SplinePath = global::Spline.Spline;
 
 var controlPoints = new[]
 {

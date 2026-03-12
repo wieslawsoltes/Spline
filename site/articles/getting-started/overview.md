@@ -30,6 +30,6 @@ pipeline, or the curve-grid tuning workflow.
 
 - Package ID: `Spline`
 - Assembly: `Spline.dll`
-- Public namespace: `Spline.Core`
+- Public namespace: `Spline`
 - Sample app: `samples/DemoSpline`
 - API docs: `site/.lunet/build/www/api/`

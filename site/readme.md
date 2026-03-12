@@ -8,7 +8,7 @@ description: Reusable spline geometry for .NET with an Avalonia reference applic
 <div class="spline-hero">
   <div class="spline-eyebrow">Reusable Geometry Package + Avalonia Research Host</div>
   <p>Spline packages the reusable .NET spline engine as <code>Spline</code> while keeping the Avalonia-based <code>DemoSpline</code> sample for interactive editing, validation, and tuning.</p>
-  <p>The NuGet package ID is <code>Spline</code>. The public namespace remains <code>Spline.Core</code> to preserve the existing code model.</p>
+  <p>The NuGet package ID, assembly name, and public namespace are all <code>Spline</code>.</p>
   <div class="spline-actions">
     <a class="btn btn-primary" href="articles/getting-started/">Get Started</a>
     <a class="btn btn-outline-secondary" href="api/">Browse API</a>

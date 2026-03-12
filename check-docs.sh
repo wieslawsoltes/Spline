@@ -31,9 +31,9 @@ DOC_ROOT="${SCRIPT_DIR}/site/.lunet/build/www"
 
 test -f "${DOC_ROOT}/index.html"
 test -f "${DOC_ROOT}/api/index.html"
-test -f "${DOC_ROOT}/api/Spline.Core/index.html"
-test -f "${DOC_ROOT}/api/Spline.Core.Spline/index.html"
-test -f "${DOC_ROOT}/api/Spline.Core.Vec2/index.html"
+test -f "${DOC_ROOT}/api/Spline/index.html"
+test -f "${DOC_ROOT}/api/Spline.Spline/index.html"
+test -f "${DOC_ROOT}/api/Spline.Vec2/index.html"
 test -f "${DOC_ROOT}/articles/index.html"
 test -f "${DOC_ROOT}/articles/getting-started/index.html"
 test -f "${DOC_ROOT}/articles/getting-started/overview/index.html"
@@ -96,17 +96,17 @@ if ! search_generated_fixed 'Package ID' "${DOC_ROOT}/articles/reference/package
     exit 1
 fi
 
-if ! search_generated_fixed 'Namespace' "${DOC_ROOT}/api/Spline.Core/index.html" >/dev/null; then
+if ! search_generated_fixed 'Namespace' "${DOC_ROOT}/api/Spline/index.html" >/dev/null; then
     echo "Generated API namespace page is missing namespace content."
     exit 1
 fi
 
-if ! search_generated_fixed '/Spline/css/lite.css' "${DOC_ROOT}/api/Spline.Core/index.html" >/dev/null; then
+if ! search_generated_fixed '/Spline/css/lite.css' "${DOC_ROOT}/api/Spline/index.html" >/dev/null; then
     echo "Generated API namespace page is missing CSS bundle links."
     exit 1
 fi
 
-if ! search_generated_fixed '/Spline/js/lite-defer.js' "${DOC_ROOT}/api/Spline.Core/index.html" >/dev/null; then
+if ! search_generated_fixed '/Spline/js/lite-defer.js' "${DOC_ROOT}/api/Spline/index.html" >/dev/null; then
     echo "Generated API namespace page is missing JS bundle links."
     exit 1
 fi

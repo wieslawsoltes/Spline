@@ -10,7 +10,7 @@ description: Publishable packages in the repository.
 - Package ID: `Spline`
 - Project: `src/Spline/Spline.csproj`
 - Assembly: `Spline.dll`
-- Public namespace: `Spline.Core`
+- Public namespace: `Spline`
 - Current repository packaging target: `net9.0`
 - Artifacts: `.nupkg` and `.snupkg`
 

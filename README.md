@@ -9,7 +9,7 @@ reference application. The codebase is structured so the spline engine can be
 shipped independently as a NuGet package, while `DemoSpline` remains a desktop
 application for interactive exploration, tuning, and validation.
 
-The NuGet package ID is `Spline`. The public namespace remains `Spline.Core`.
+The NuGet package ID and public namespace are both `Spline`.
 
 ## NuGet Packages
 
@@ -41,7 +41,9 @@ The NuGet package ID is `Spline`. The public namespace remains `Spline.Core`.
 dotnet add package Spline
 ```
 
-Use `using Spline.Core;` in consumer code.
+Use `using Spline;` in consumer code. Because the main spline type is also
+named `Spline`, `using SplinePath = global::Spline.Spline;` is a convenient
+alias when you need that type often.
 
 ### Build the repository
 
@@ -82,7 +84,7 @@ The repository includes two GitHub Actions workflows:
 - `docs.yml` builds the Lunet site and deploys it to GitHub Pages.
 
 The docs site includes article-based documentation and generated API docs for
-the `Spline.Core` namespace.
+the `Spline` namespace.
 
 For NuGet publishing, configure the `NUGET_API_KEY` secret in the `nuget`
 GitHub environment.

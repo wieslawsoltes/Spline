@@ -6,7 +6,7 @@ description: Map of the generated API reference and the major public types in th
 # API Coverage Index
 
 The generated API reference is available under [API Root](../../api/) with the
-main package namespace at [Spline.Core Namespace](../../api/Spline.Core/).
+main package namespace at [Spline Namespace](../../api/Spline/).
 
 ## Core type groups
 

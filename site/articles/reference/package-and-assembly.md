@@ -10,14 +10,14 @@ description: Identity details for the NuGet package, project, assembly, and name
 - Package ID: `Spline`
 - Project path: `src/Spline/Spline.csproj`
 - Assembly name: `Spline.dll`
-- Public namespace: `Spline.Core`
+- Public namespace: `Spline`
 - Target framework: `net9.0`
 
-## Why package and namespace differ
+## Namespace and type naming
 
-The package was renamed to `Spline` for simpler distribution and discovery.
-The namespace remains `Spline.Core` so existing code and internal structure do
-not need a broader public API rename.
+The package, assembly, and public namespace are all `Spline`. The primary spline
+type is also named `Spline`, so many consumers use an alias such as
+`using SplinePath = global::Spline.Spline;` to keep code readable.
 
 ## Package artifacts
 
