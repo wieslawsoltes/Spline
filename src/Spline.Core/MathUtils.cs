@@ -29,5 +29,45 @@ namespace Spline.Core
         {
             return Math.Sqrt(x * x + y * y);
         }
+
+        /// <summary>
+        /// Solve a tridiagonal matrix system in place using the Thomas algorithm.
+        /// </summary>
+        /// <remarks>
+        /// This matches the upstream JS implementation and mutates <paramref name="b"/> and
+        /// <paramref name="d"/> while writing the solution into <paramref name="x"/>.
+        /// </remarks>
+        public static void SolveTridiagonal(double[] a, double[] b, double[] c, double[] d, double[] x)
+        {
+            ArgumentNullException.ThrowIfNull(a);
+            ArgumentNullException.ThrowIfNull(b);
+            ArgumentNullException.ThrowIfNull(c);
+            ArgumentNullException.ThrowIfNull(d);
+            ArgumentNullException.ThrowIfNull(x);
+
+            int n = x.Length;
+            if (n == 0)
+            {
+                throw new ArgumentException("x must not be empty.", nameof(x));
+            }
+
+            if (a.Length != n || b.Length != n || c.Length != n || d.Length != n)
+            {
+                throw new ArgumentException("All tridiagonal vectors must have the same length as x.");
+            }
+
+            for (int i = 1; i < n; i++)
+            {
+                double m = a[i] / b[i - 1];
+                b[i] -= m * c[i - 1];
+                d[i] -= m * d[i - 1];
+            }
+
+            x[n - 1] = d[n - 1] / b[n - 1];
+            for (int i = n - 2; i >= 0; i--)
+            {
+                x[i] = (d[i] - c[i] * x[i + 1]) / b[i];
+            }
+        }
     }
 }

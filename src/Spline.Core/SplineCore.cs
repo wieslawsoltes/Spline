@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using static Spline.Core.MathUtils;
 
 namespace Spline.Core
@@ -295,7 +296,7 @@ namespace Spline.Core
         {
             var c = _ctrlPts;
             if (c.Count == 0) return string.Empty;
-            string path = $"M{c[0].X} {c[0].Y}";
+            string path = string.Create(CultureInfo.InvariantCulture, $"M{c[0].X} {c[0].Y}");
             string cmd = " C";
             for (int i = 0; i < c.Count - 1; i++)
             {
@@ -308,10 +309,10 @@ namespace Spline.Core
                     var pt = render[j];
                     double x = c[i].X + dx * pt.X - dy * pt.Y;
                     double y = c[i].Y + dy * pt.X + dx * pt.Y;
-                    path += $"{cmd}{x} {y}";
+                    path += string.Create(CultureInfo.InvariantCulture, $"{cmd}{x} {y}");
                     cmd = " ";
                 }
-                path += $" {c[i + 1].X} {c[i + 1].Y}";
+                path += string.Create(CultureInfo.InvariantCulture, $" {c[i + 1].X} {c[i + 1].Y}");
             }
             return path;
         }

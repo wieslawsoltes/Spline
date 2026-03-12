@@ -97,6 +97,7 @@ namespace Spline.Core
                         Pt(k + 1, start).LThComputed = inner.Ths[k + 1 - i];
                     }
 
+                    // Match the upstream solver: record endpoint curvature in the local chord frame.
                     for (int k = i; k + 1 < j; k++)
                     {
                         double dx = Pt(k + 1, start).Pt.X - Pt(k, start).Pt.X;
@@ -104,46 +105,14 @@ namespace Spline.Core
                         double chth = Math.Atan2(dy, dx);
                         double th0 = MathUtils.Mod2Pi(Pt(k, start).RThComputed - chth);
                         double th1 = MathUtils.Mod2Pi(chth - Pt(k + 1, start).LThComputed);
-                        var cb = new CubicBezier(TwoParamCurve_MyCubic(th0, th1));
-                        double Curv(double t, double th)
-                        {
-                            double c = Math.Cos(th);
-                            double s = Math.Sin(th);
-                            var d2 = cb.Deriv2(t);
-                            double d2cross = d2.Y * c - d2.X * s;
-                            var d = cb.Deriv(t);
-                            double ddot = d.X * c + d.Y * s;
-                            return Math.Atan2(d2cross, ddot * Math.Abs(ddot));
-                        }
-                        Pt(k, start).RAk = Curv(0, Pt(k, start).RThComputed);
-                        Pt(k + 1, start).LAk = Curv(1, -Pt(k + 1, start).LThComputed);
+                        var aks = _curve.ComputeCurvature(th0, th1);
+                        Pt(k, start).RAk = aks.ak0;
+                        Pt(k + 1, start).LAk = aks.ak1;
                     }
 
                     i = j - 1;
                 }
             }
-        }
-
-        private static double[] TwoParamCurve_MyCubic(double th0, double th1)
-        {
-            // Copy of TwoParamCurve.MyCubic since it is protected
-            double MyCubicLen(double a0, double a1)
-            {
-                double offset = 0.3 * Math.Sin(a1 * 2 - 0.4 * Math.Sin(a1 * 2));
-                double scale = 1.0 / (3 * 0.8);
-                double len = scale * (Math.Cos(a0 - offset) - 0.2 * Math.Cos(3 * (a0 - offset)));
-                return len;
-            }
-
-            var coords = new double[8];
-            double len0 = MyCubicLen(th0, th1);
-            coords[2] = Math.Cos(th0) * len0;
-            coords[3] = Math.Sin(th0) * len0;
-            double len1 = MyCubicLen(th1, th0);
-            coords[4] = 1 - Math.Cos(th1) * len1;
-            coords[5] = Math.Sin(th1) * len1;
-            coords[6] = 1;
-            return coords;
         }
 
         private double ChordLen(int i)
@@ -187,9 +156,10 @@ namespace Spline.Core
                 var akNext = _curve.ComputeCurvature(th0Next, th1Next);
                 double akLeft = akNext.ak0; // curvature at left end of next seg
 
-                // Store (optional), then blend
-                joint.RAk = akRight;
-                joint.LAk = akLeft;
+                // Preserve the upstream naming: LAk is the incoming curvature,
+                // RAk is the outgoing curvature at the joint.
+                joint.LAk = akRight;
+                joint.RAk = akLeft;
 
                 if (Math.Sign(akRight) != Math.Sign(akLeft))
                 {
