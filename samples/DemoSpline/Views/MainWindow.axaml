@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DemoSpline.ViewModels"
+         xmlns:paz="using:Avalonia.Controls.PanAndZoom"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DemoSpline.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="DemoSpline">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="*">
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="New" Click="OnNewDrawing"/>
+                <MenuItem Header="Load from JSON" Click="OnLoadJson"/>
+                <MenuItem Header="Save to JSON" Click="OnSaveJson"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Delete point" Click="OnDeletePoint"/>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Show grid" Click="OnToggleGrid" x:Name="ShowGridMenu"/>
+                <MenuItem Header="Zoom">
+                    <MenuItem Header="Reset" Click="OnZoomReset"/>
+                    <MenuItem Header="Fit to Window" Click="OnZoomFit"/>
+                    <MenuItem Header="Zoom In" Click="OnZoomIn"/>
+                    <MenuItem Header="Zoom Out" Click="OnZoomOut"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem Header="Edit Spline" Click="OnSelectEditTool" x:Name="EditToolMenu"/>
+                <MenuItem Header="Trace From Freehand" Click="OnSelectFreehandTool" x:Name="FreehandToolMenu"/>
+                <MenuItem Header="Delete Point Tool" Click="OnSelectDeletePointTool" x:Name="DeletePointToolMenu"/>
+                <MenuItem Header="Open Tuner" Click="OnOpenTuner"/>
+                <MenuItem Header="Insert Glyph..." Click="OnOpenGlyphPicker"/>
+                <MenuItem Header="Edit Glyphs" Click="OnSelectGlyphEditTool" x:Name="GlyphEditToolMenu"/>
+                <MenuItem Header="Use raw cubic (no curvature adjust)" Click="OnToggleRawCubic" x:Name="RawCubicMenu"/>
+                <MenuItem Header="Reduce Knots" Click="OnReduceKnots"/>
+                <MenuItem Header="Fair Curvature..." Click="OnFairCurvature"/>
+                <MenuItem Header="Straighten Spans..." Click="OnStraightenSpans"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About &amp; help" Click="OnOpenHelp"/>
+            </MenuItem>
+        </Menu>
+        <Grid x:Name="Viewport" Grid.Row="1" ClipToBounds="True" Background="#FFFFFFFF">
+            <paz:ZoomBorder x:Name="ZoomHost" ClipToBounds="True" Focusable="True" ZoomSpeed="1.1" Stretch="None">
+                <Grid>
+                    <Canvas x:Name="GridCanvas" Background="#FFFFFFFF" IsHitTestVisible="False"/>
+                    <Canvas x:Name="GlyphCanvas" Background="Transparent" IsHitTestVisible="False"/>
+                    <Canvas x:Name="EditorCanvas" Background="Transparent"/>
+                </Grid>
+            </paz:ZoomBorder>
+        </Grid>
+    </Grid>
+
+</Window>

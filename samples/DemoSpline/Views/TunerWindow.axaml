@@ -1,0 +1,18 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DemoSpline.Views.TunerWindow"
+        Title="Spline tuner" Width="900" Height="1100">
+  <Grid RowDefinitions="Auto,Auto,Auto,*" ColumnDefinitions="*">
+    <!-- Overlay the map under the drawing canvas to match original placement (top-left) -->
+    <Image Grid.Row="0" x:Name="MapImage" Width="480" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False"/>
+    <Canvas x:Name="TunerCanvas" Grid.Row="0" MinWidth="800" MinHeight="480" Background="Transparent"/>
+    <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8" Margin="8,4,8,4">
+      <Button Content="Load" Click="OnLoad"/>
+      <Button Content="Save" Click="OnSave"/>
+      <Button Content="κ Map" Click="OnMap"/>
+    </StackPanel>
+    <TextBox Grid.Row="2" x:Name="JsonBox" AcceptsReturn="True" Height="200" Width="800" TextWrapping="Wrap"/>
+  </Grid>
+</Window>
+
+

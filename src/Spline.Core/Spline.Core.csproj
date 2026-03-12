@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsPackable>true</IsPackable>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageId>Spline.Core</PackageId>
+    <Version>0.1.0</Version>
+    <Description>Reusable spline geometry, fitting, and Bezier helpers extracted from DemoSpline.</Description>
+    <PackageTags>spline;bezier;geometry;curves</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Initial reusable spline geometry package extracted from the DemoSpline application.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DemoSpline.Views.HelpWindow"
+        Width="600" Height="500"
+        Title="About &amp; help">
+  <Grid RowDefinitions="Auto,*" Margin="10">
+    <TextBlock Text="Spline editor help" FontWeight="Bold" FontSize="16"/>
+    <ScrollViewer Grid.Row="1">
+      <StackPanel Spacing="8">
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="A new spline"/>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Add a new corner point: click. Add a new smooth point: Alt+click, or click and drag."/>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Select multiple points: Shift+click."/>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Refine a curve: click on the curve and drag (insert a new smooth point)."/>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Set an explicit tangent: click and drag on the handles. Set axis-aligned: Shift+drag. Unset an explicit tangent: drag away."/>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Toggle between smooth and corner points: double-click."/>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Delete a point: Delete (or Backspace) key, or Edit → Delete point."/>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Nudge points by 1 px: Arrow keys. Nudge by 10 px: Shift+Arrow keys."/>
+        </TextBlock>
+        <Separator/>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Copyright 2018 Raph Levien"/>
+        </TextBlock>
+        <TextBlock TextWrapping="Wrap">
+          <Run Text="Github repo: https://github.com/raphlinus/spline-research"/>
+        </TextBlock>
+      </StackPanel>
+    </ScrollViewer>
+  </Grid>
+</Window>
+

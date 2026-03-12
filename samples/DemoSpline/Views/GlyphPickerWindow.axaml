@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DemoSpline.Views.GlyphPickerWindow"
+        Width="900" Height="760"
+        Title="Insert Glyph">
+    <Grid RowDefinitions="Auto,Auto,*,Auto" ColumnDefinitions="*">
+        <StackPanel Orientation="Horizontal" Margin="8" Spacing="8">
+            <TextBlock Text="Font:" VerticalAlignment="Center"/>
+            <ComboBox x:Name="FontCombo" Width="300"/>
+            <TextBlock Text="Size:" VerticalAlignment="Center"/>
+            <NumericUpDown x:Name="FontSizeBox" Width="100" Minimum="4" Maximum="512" Value="120"/>
+        </StackPanel>
+        <TextBox x:Name="SearchBox" Grid.Row="1" Margin="8" Watermark="Filter by glyph name, index, U+hex, or character"/>
+        <ScrollViewer Grid.Row="2" Margin="8">
+            <WrapPanel x:Name="GlyphWrap"/>
+        </ScrollViewer>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="8" Spacing="8">
+            <Button x:Name="InsertBtn" Content="Insert" IsEnabled="False" Width="100" Click="OnInsertClick"/>
+            <Button x:Name="CloseBtn" Content="Close" Width="100" Click="OnCloseClick"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
