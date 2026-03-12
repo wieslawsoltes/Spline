@@ -1,6 +1,6 @@
 using System;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Represents a polynomial defined by ascending-order coefficients.

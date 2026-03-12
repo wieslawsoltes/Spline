@@ -14,7 +14,7 @@ Avalonia application and published as the `Spline` NuGet package.
 
 - Package ID: `Spline`
 - Assembly: `Spline.dll`
-- Namespace: `Spline.Core`
+- Namespace: `Spline`
 
 ## Target
 
@@ -22,9 +22,12 @@ Avalonia application and published as the `Spline` NuGet package.
 
 ## Consumer example
 
+The main spline type is also named `Spline`, so many consumers alias it as
+`SplinePath`:
+
 ```csharp
-using Spline.Core;
-using SplinePath = Spline.Core.Spline;
+using Spline;
+using SplinePath = global::Spline.Spline;
 
 var spline = new SplinePath(controlPoints, isClosed: false);
 spline.Solve();

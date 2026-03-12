@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Interpolates a symmetric grid of <see cref="TwoCubics"/> master samples.

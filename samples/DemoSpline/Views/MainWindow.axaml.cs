@@ -15,8 +15,8 @@ using Avalonia.Threading;
 using DemoSpline.Models;
 using Avalonia.Media.TextFormatting;
 using Avalonia.VisualTree;
-using Spline.Core;
-using SplinePath = Spline.Core.Spline;
+using Spline;
+using SplinePath = global::Spline.Spline;
 
 namespace DemoSpline.Views;
 

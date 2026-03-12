@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Solves and renders spline spans across a control-point sequence with corner and smooth joints.

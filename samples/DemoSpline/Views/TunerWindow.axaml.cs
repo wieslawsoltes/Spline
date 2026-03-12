@@ -10,7 +10,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
-using Spline.Core;
+using Spline;
 
 namespace DemoSpline.Views;
 
@@ -435,4 +435,3 @@ public partial class TunerWindow : Window
         await dlg.ShowDialog(this);
     }
 }
-

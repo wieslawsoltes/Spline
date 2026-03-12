@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Describes the command kinds stored in a <see cref="BezierPath"/>.

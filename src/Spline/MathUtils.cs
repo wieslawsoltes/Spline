@@ -1,6 +1,6 @@
 using System;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Provides low-level numerical helpers used by the spline implementation.

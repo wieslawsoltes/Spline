@@ -1,6 +1,6 @@
 using System;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Evaluates and differentiates a cubic Bezier segment in normalized local space.

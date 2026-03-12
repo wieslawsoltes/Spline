@@ -1,2 +1,2 @@
-global using Spline.Core;
-global using SplinePath = Spline.Core.Spline;
+global using Spline;
+global using SplinePath = global::Spline.Spline;

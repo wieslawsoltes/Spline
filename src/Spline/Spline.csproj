@@ -5,13 +5,13 @@
     <IsPackable>true</IsPackable>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <PackageId>Spline</PackageId>
-    <RootNamespace>Spline.Core</RootNamespace>
+    <RootNamespace>Spline</RootNamespace>
     <Title>Spline</Title>
     <Version>0.1.0</Version>
     <Description>Reusable spline geometry, curvature-aware rendering, and Bezier path utilities for .NET.</Description>
     <PackageTags>spline;bezier;geometry;curves</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Rename package identity to Spline and expand docs, API reference, and test coverage.</PackageReleaseNotes>
+    <PackageReleaseNotes>Rename the package and public namespace to Spline, and expand docs, API reference, and test coverage.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

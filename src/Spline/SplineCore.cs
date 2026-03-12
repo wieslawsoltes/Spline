@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using static Spline.Core.MathUtils;
+using static Spline.MathUtils;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Defines a family of chord-normalized curves controlled by two endpoint tangent angles.

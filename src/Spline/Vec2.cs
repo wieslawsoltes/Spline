@@ -1,6 +1,6 @@
 using System;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Represents a 2D vector used throughout the spline geometry pipeline.

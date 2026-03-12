@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Provides headless polyline simplification, corner detection, and resampling helpers.

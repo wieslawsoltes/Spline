@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Spline.Core
+namespace Spline
 {
     /// <summary>
     /// Stores a two-cubic curve family sample used by the curve-grid tuner workflow.
