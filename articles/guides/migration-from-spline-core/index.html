@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Migration from Spline.Core | Spline">
-<meta name="twitter:description" content="Migration from Spline.Core The package and project identity were simplified from Spline.Core to Spline. What changed NuGet package ID changed from Spline.Core to Spline project path changed from src/Spline.Core/Spline.Core.csproj to src/Spline/Spline.csproj solution and workflow references were updated to the new project path What stayed the same public namespace: Spline.Core sample app name: DemoSpline repository name: Spline Consumer update checklist...">
+<meta name="twitter:description" content="Migration from Spline.Core The package, project, and public namespace were simplified from Spline.Core to Spline. What changed NuGet package ID changed from Spline.Core to Spline project path changed from src/Spline.Core/Spline.Core.csproj to src/Spline/Spline.csproj public namespace changed from Spline.Core to Spline solution and workflow references were updated to the new project path What stayed the same sample app name: DemoSpline...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Migration from Spline.Core | Spline">
 <meta property="og:title" content="Migration from Spline.Core | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Migration from Spline.Core The package and project identity were simplified from Spline.Core to Spline. What changed NuGet package ID changed from Spline.Core to Spline project path changed from src/Spline.Core/Spline.Core.csproj to src/Spline/Spline.csproj solution and workflow references were updated to the new project path What stayed the same public namespace: Spline.Core sample app name: DemoSpline repository name: Spline Consumer update checklist...">
+<meta property="og:description" content="Migration from Spline.Core The package, project, and public namespace were simplified from Spline.Core to Spline. What changed NuGet package ID changed from Spline.Core to Spline project path changed from src/Spline.Core/Spline.Core.csproj to src/Spline/Spline.csproj public namespace changed from Spline.Core to Spline solution and workflow references were updated to the new project path What stayed the same sample app name: DemoSpline...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Migration from Spline.Core | Spline">
   </head>
@@ -146,25 +146,27 @@
         </div>
 <!-- lunet:summarize -->
 <h1 id="migration-from-splinecore">Migration from Spline.Core</h1>
-<p>The package and project identity were simplified from <code>Spline.Core</code> to
-<code>Spline</code>.</p>
+<p>The package, project, and public namespace were simplified from <code>Spline.Core</code>
+to <code>Spline</code>.</p>
 <h2 id="what-changed">What changed</h2>
 <ul>
 <li>NuGet package ID changed from <code>Spline.Core</code> to <code>Spline</code></li>
 <li>project path changed from <code>src/Spline.Core/Spline.Core.csproj</code> to
 <code>src/Spline/Spline.csproj</code></li>
+<li>public namespace changed from <code>Spline.Core</code> to <code>Spline</code></li>
 <li>solution and workflow references were updated to the new project path</li>
 </ul>
 <h2 id="what-stayed-the-same">What stayed the same</h2>
 <ul>
-<li>public namespace: <code>Spline.Core</code></li>
 <li>sample app name: <code>DemoSpline</code></li>
 <li>repository name: <code>Spline</code></li>
 </ul>
 <h2 id="consumer-update-checklist">Consumer update checklist</h2>
 <ol>
 <li>Change package references to <code>Spline</code>.</li>
-<li>Keep <code>using Spline.Core;</code> in application code.</li>
+<li>Change <code>using Spline.Core;</code> to <code>using Spline;</code>.</li>
+<li>If you frequently construct the <code>Spline</code> type, add
+<code>using SplinePath = global::Spline.Spline;</code>.</li>
 <li>Update local project references if you consume the source tree directly.</li>
 <li>If you have scripts that pack or restore the project by path, update them to
 <code>src/Spline/Spline.csproj</code>.</li>

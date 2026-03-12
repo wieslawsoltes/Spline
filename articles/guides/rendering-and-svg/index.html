@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Rendering and SVG Export | Spline">
-<meta name="twitter:description" content="Rendering and SVG Export The main package workflow ends in either BezierPath output or SVG path text. Basic flow Create Spline.Core.Spline.CP control points. Construct a Spline.Core.Spline. Call Solve(). Optionally call ComputeCurvatureBlending(). Render with Render() or RenderSvg(). Object output Render() returns a BezierPath, which is useful when you need: path command inspection hit testing segment marks a deferred conversion step Text output RenderSvg() calls Render() and serializes the resulting command stream...">
+<meta name="twitter:description" content="Rendering and SVG Export The main package workflow ends in either BezierPath output or SVG path text. Basic flow Import using Spline; and optionally using SplinePath = global::Spline.Spline;. Create SplinePath.CP control points. Construct a SplinePath. Call Solve(). Optionally call ComputeCurvatureBlending(). Render with Render() or RenderSvg(). Object output Render() returns a BezierPath, which is useful when you need: path command inspection hit testing segment marks a deferred conversion step...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Rendering and SVG Export | Spline">
 <meta property="og:title" content="Rendering and SVG Export | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Rendering and SVG Export The main package workflow ends in either BezierPath output or SVG path text. Basic flow Create Spline.Core.Spline.CP control points. Construct a Spline.Core.Spline. Call Solve(). Optionally call ComputeCurvatureBlending(). Render with Render() or RenderSvg(). Object output Render() returns a BezierPath, which is useful when you need: path command inspection hit testing segment marks a deferred conversion step Text output RenderSvg() calls Render() and serializes the resulting command stream...">
+<meta property="og:description" content="Rendering and SVG Export The main package workflow ends in either BezierPath output or SVG path text. Basic flow Import using Spline; and optionally using SplinePath = global::Spline.Spline;. Create SplinePath.CP control points. Construct a SplinePath. Call Solve(). Optionally call ComputeCurvatureBlending(). Render with Render() or RenderSvg(). Object output Render() returns a BezierPath, which is useful when you need: path command inspection hit testing segment marks a deferred conversion step...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Rendering and SVG Export | Spline">
   </head>
@@ -149,8 +149,9 @@
 <p>The main package workflow ends in either <code>BezierPath</code> output or SVG path text.</p>
 <h2 id="basic-flow">Basic flow</h2>
 <ol>
-<li>Create <code>Spline.Core.Spline.CP</code> control points.</li>
-<li>Construct a <code>Spline.Core.Spline</code>.</li>
+<li>Import <code>using Spline;</code> and optionally <code>using SplinePath = global::Spline.Spline;</code>.</li>
+<li>Create <code>SplinePath.CP</code> control points.</li>
+<li>Construct a <code>SplinePath</code>.</li>
 <li>Call <code>Solve()</code>.</li>
 <li>Optionally call <code>ComputeCurvatureBlending()</code>.</li>
 <li>Render with <code>Render()</code> or <code>RenderSvg()</code>.</li>

@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Quick Start | Spline">
-<meta name="twitter:description" content="Quick Start Add the package dotnet add package Spline Run the demo application dotnet run --project samples/DemoSpline/DemoSpline.csproj Minimal code example using Spline.Core; using SplinePath = Spline.Core.Spline; var controlPoints = new[] { new SplinePath.CP(new Vec2(0, 0), &quot;corner&quot;, null, null), new SplinePath.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null), new SplinePath.CP(new Vec2(100, 0), &quot;corner&quot;, null, null), }; var spline = new SplinePath(controlPoints, isClosed: false); spline.Solve(); spline.ComputeCurvatureBlending(); string svgPath = spline.RenderSvg();...">
+<meta name="twitter:description" content="Quick Start Add the package dotnet add package Spline Run the demo application dotnet run --project samples/DemoSpline/DemoSpline.csproj Minimal code example using Spline; using SplinePath = global::Spline.Spline; var controlPoints = new[] { new SplinePath.CP(new Vec2(0, 0), &quot;corner&quot;, null, null), new SplinePath.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null), new SplinePath.CP(new Vec2(100, 0), &quot;corner&quot;, null, null), }; var spline = new SplinePath(controlPoints, isClosed: false); spline.Solve(); spline.ComputeCurvatureBlending(); string svgPath = spline.RenderSvg();...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Quick Start | Spline">
 <meta property="og:title" content="Quick Start | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Quick Start Add the package dotnet add package Spline Run the demo application dotnet run --project samples/DemoSpline/DemoSpline.csproj Minimal code example using Spline.Core; using SplinePath = Spline.Core.Spline; var controlPoints = new[] { new SplinePath.CP(new Vec2(0, 0), &quot;corner&quot;, null, null), new SplinePath.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null), new SplinePath.CP(new Vec2(100, 0), &quot;corner&quot;, null, null), }; var spline = new SplinePath(controlPoints, isClosed: false); spline.Solve(); spline.ComputeCurvatureBlending(); string svgPath = spline.RenderSvg();...">
+<meta property="og:description" content="Quick Start Add the package dotnet add package Spline Run the demo application dotnet run --project samples/DemoSpline/DemoSpline.csproj Minimal code example using Spline; using SplinePath = global::Spline.Spline; var controlPoints = new[] { new SplinePath.CP(new Vec2(0, 0), &quot;corner&quot;, null, null), new SplinePath.CP(new Vec2(50, 20), &quot;smooth&quot;, null, null), new SplinePath.CP(new Vec2(100, 0), &quot;corner&quot;, null, null), }; var spline = new SplinePath(controlPoints, isClosed: false); spline.Solve(); spline.ComputeCurvatureBlending(); string svgPath = spline.RenderSvg();...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Quick Start | Spline">
   </head>
@@ -165,8 +165,8 @@
 <pre><code class="language-bash">dotnet run --project samples/DemoSpline/DemoSpline.csproj
 </code></pre>
 <h2 id="minimal-code-example">Minimal code example</h2>
-<pre><code class="language-csharp">using Spline.Core;
-using SplinePath = Spline.Core.Spline;
+<pre><code class="language-csharp">using Spline;
+using SplinePath = global::Spline.Spline;
 
 var controlPoints = new[]
 {

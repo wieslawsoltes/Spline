@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Using Spline | Spline">
-<meta name="twitter:description" content="Using Spline Spline is the NuGet package published from this repository. It exposes the reusable spline engine without bringing the Avalonia UI layer along with it. Package and namespace NuGet package ID: Spline Assembly: Spline.dll Public namespace: Spline.Core The package name was simplified to Spline, but the namespace remains Spline.Core so existing code can continue using the same API surface. Included responsibilities vector math through Vec2 Bezier helpers such as...">
+<meta name="twitter:description" content="Using Spline Spline is the NuGet package published from this repository. It exposes the reusable spline engine without bringing the Avalonia UI layer along with it. Package and namespace NuGet package ID: Spline Assembly: Spline.dll Public namespace: Spline The package, assembly, and public namespace are aligned as Spline. Because the namespace and the main spline type now share the same identifier, an alias such as using SplinePath = global::Spline.Spline;...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Using Spline | Spline">
 <meta property="og:title" content="Using Spline | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Using Spline Spline is the NuGet package published from this repository. It exposes the reusable spline engine without bringing the Avalonia UI layer along with it. Package and namespace NuGet package ID: Spline Assembly: Spline.dll Public namespace: Spline.Core The package name was simplified to Spline, but the namespace remains Spline.Core so existing code can continue using the same API surface. Included responsibilities vector math through Vec2 Bezier helpers such as...">
+<meta property="og:description" content="Using Spline Spline is the NuGet package published from this repository. It exposes the reusable spline engine without bringing the Avalonia UI layer along with it. Package and namespace NuGet package ID: Spline Assembly: Spline.dll Public namespace: Spline The package, assembly, and public namespace are aligned as Spline. Because the namespace and the main spline type now share the same identifier, an alias such as using SplinePath = global::Spline.Spline;...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Using Spline | Spline">
   </head>
@@ -152,10 +152,11 @@ reusable spline engine without bringing the Avalonia UI layer along with it.</p>
 <ul>
 <li>NuGet package ID: <code>Spline</code></li>
 <li>Assembly: <code>Spline.dll</code></li>
-<li>Public namespace: <code>Spline.Core</code></li>
+<li>Public namespace: <code>Spline</code></li>
 </ul>
-<p>The package name was simplified to <code>Spline</code>, but the namespace remains
-<code>Spline.Core</code> so existing code can continue using the same API surface.</p>
+<p>The package, assembly, and public namespace are aligned as <code>Spline</code>. Because
+the namespace and the main spline type now share the same identifier, an alias
+such as <code>using SplinePath = global::Spline.Spline;</code> keeps consumer code clear.</p>
 <h2 id="included-responsibilities">Included responsibilities</h2>
 <ul>
 <li>vector math through <code>Vec2</code></li>
@@ -174,8 +175,8 @@ reusable spline engine without bringing the Avalonia UI layer along with it.</p>
 <p>The package is built from <code>src/Spline/Spline.csproj</code> and includes both a
 NuGet package and a symbol package during <code>dotnet pack</code>.</p>
 <h2 id="typical-consumer-flow">Typical consumer flow</h2>
-<pre><code class="language-csharp">using Spline.Core;
-using SplinePath = Spline.Core.Spline;
+<pre><code class="language-csharp">using Spline;
+using SplinePath = global::Spline.Spline;
 
 var controlPoints = new[]
 {

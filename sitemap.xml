@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/solver-and-curvature</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/freehand-tracing</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/overview</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/curve-families-and-parameterization</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
@@ -29,11 +13,47 @@
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/geometry-primitives</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/library-architecture</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/rendering-and-hit-testing</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/installation</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/overview</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/quick-start</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/verification</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/curve-grid-and-tuning</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/freehand-tracing</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
@@ -45,7 +65,7 @@
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/testing-and-parity</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/ci-and-releases</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
@@ -53,7 +73,11 @@
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/ci-and-releases</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/testing-and-parity</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/packages</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
@@ -65,7 +89,7 @@
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/packages</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
@@ -73,11 +97,11 @@
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/testing-and-validation</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/testing-and-validation</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/solver-and-curvature</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
@@ -89,15 +113,11 @@
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/hit-testing-and-editing</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/rendering-and-hit-testing</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/json-format</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/hit-testing-and-editing</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
@@ -113,31 +133,11 @@
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/verification</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/tuner-window</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/geometry-primitives</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/using-spline</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/library-architecture</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/quick-start</loc>
-    <lastmod>2026-03-12</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/curve-families-and-parameterization</loc>
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>

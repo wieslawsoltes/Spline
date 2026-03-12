@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Package and Assembly | Spline">
-<meta name="twitter:description" content="Package and Assembly Identity Package ID: Spline Project path: src/Spline/Spline.csproj Assembly name: Spline.dll Public namespace: Spline.Core Target framework: net9.0 Why package and namespace differ The package was renamed to Spline for simpler distribution and discovery. The namespace remains Spline.Core so existing code and internal structure do not need a broader public API rename. Package artifacts dotnet pack produces: Spline.&lt;version>.nupkg Spline.&lt;version>.snupkg...">
+<meta name="twitter:description" content="Package and Assembly Identity Package ID: Spline Project path: src/Spline/Spline.csproj Assembly name: Spline.dll Public namespace: Spline Target framework: net9.0 Namespace and type naming The package, assembly, and public namespace are all Spline. The primary spline type is also named Spline, so many consumers use an alias such as using SplinePath = global::Spline.Spline; to keep code readable. Package artifacts dotnet pack produces: Spline.&lt;version>.nupkg...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Package and Assembly | Spline">
 <meta property="og:title" content="Package and Assembly | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Package and Assembly Identity Package ID: Spline Project path: src/Spline/Spline.csproj Assembly name: Spline.dll Public namespace: Spline.Core Target framework: net9.0 Why package and namespace differ The package was renamed to Spline for simpler distribution and discovery. The namespace remains Spline.Core so existing code and internal structure do not need a broader public API rename. Package artifacts dotnet pack produces: Spline.&lt;version>.nupkg Spline.&lt;version>.snupkg...">
+<meta property="og:description" content="Package and Assembly Identity Package ID: Spline Project path: src/Spline/Spline.csproj Assembly name: Spline.dll Public namespace: Spline Target framework: net9.0 Namespace and type naming The package, assembly, and public namespace are all Spline. The primary spline type is also named Spline, so many consumers use an alias such as using SplinePath = global::Spline.Spline; to keep code readable. Package artifacts dotnet pack produces: Spline.&lt;version>.nupkg...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Package and Assembly | Spline">
   </head>
@@ -169,13 +169,13 @@
 <li>Package ID: <code>Spline</code></li>
 <li>Project path: <code>src/Spline/Spline.csproj</code></li>
 <li>Assembly name: <code>Spline.dll</code></li>
-<li>Public namespace: <code>Spline.Core</code></li>
+<li>Public namespace: <code>Spline</code></li>
 <li>Target framework: <code>net9.0</code></li>
 </ul>
-<h2 id="why-package-and-namespace-differ">Why package and namespace differ</h2>
-<p>The package was renamed to <code>Spline</code> for simpler distribution and discovery.
-The namespace remains <code>Spline.Core</code> so existing code and internal structure do
-not need a broader public API rename.</p>
+<h2 id="namespace-and-type-naming">Namespace and type naming</h2>
+<p>The package, assembly, and public namespace are all <code>Spline</code>. The primary spline
+type is also named <code>Spline</code>, so many consumers use an alias such as
+<code>using SplinePath = global::Spline.Spline;</code> to keep code readable.</p>
 <h2 id="package-artifacts">Package artifacts</h2>
 <p><code>dotnet pack</code> produces:</p>
 <ul>
