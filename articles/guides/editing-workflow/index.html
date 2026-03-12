@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html data-lunet-theme-mode="system" data-lunet-theme-storage-key="lunet-theme" data-lunet-css-prefix="lunet" lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="lunet 1.0.10.0">
+    <script>(function(){const root=document.documentElement;const key=root.getAttribute("data-lunet-theme-storage-key")||"lunet-theme";const fallback=root.getAttribute("data-lunet-theme-mode")||"system";let stored=null;try{stored=localStorage.getItem(key);}catch(_){stored=null;}const mode=(stored==="light"||stored==="dark"||stored==="system")?stored:fallback;const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const resolved=mode==="system"?(prefersDark?"dark":"light"):mode;root.setAttribute("data-lunet-theme-mode",mode);root.setAttribute("data-bs-theme",resolved);}());</script>
+    <link rel='icon' href='/Spline/favicon.ico' sizes='32x32'>
+    <title>Editing Workflow | Spline</title>
+    <link rel="stylesheet" href="/Spline/css/lite.css">
+    <script src="/Spline/js/lite-defer.js" defer></script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:title" content="Editing Workflow | Spline">
+<meta name="twitter:description" content="Editing Workflow DemoSpline is designed as the interactive validation host for Spline.Core. Core editing gestures Click to add a new corner point. Alt+Click or click-drag to add a smooth point. Shift+Click to extend the current point selection. Double-click to toggle a point between smooth and corner behavior. Drag tangent handles to set explicit tangents. Shift+Drag on a tangent handle to constrain it to axis-aligned directions....">
+<meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
+<meta name="twitter:image:alt" content="Editing Workflow | Spline">
+<meta property="og:title" content="Editing Workflow | Spline">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
+<meta property="og:description" content="Editing Workflow DemoSpline is designed as the interactive validation host for Spline.Core. Core editing gestures Click to add a new corner point. Alt+Click or click-drag to add a smooth point. Shift+Click to extend the current point selection. Double-click to toggle a point between smooth and corner behavior. Drag tangent handles to set explicit tangents. Shift+Drag on a tangent handle to constrain it to axis-aligned directions....">
+<meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
+<meta property="og:image:alt" content="Editing Workflow | Spline">
+  </head>
+  <body>
+
+    <div id="lunet" class="container">
+      <nav class="navbar navbar-expand-md sticky-top">
+        <a class="navbar-brand" href="/Spline/">
+          <img class="lunet-logo" src="/Spline/img/lunet-logo.png" alt="Spline" width="96" height="96">
+          <span class="visually-hidden">Home</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-between">
+<ol id='nav-id-home-0' class='navbar-nav nav-level0 show '>
+  <li id='nav-item-home-1' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/' class='nav-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a></span>  </li>
+  <li id='nav-item-home-2' class='nav-item  active'>
+    <span class='nav-item-row'><a href='/Spline/articles/' class='nav-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a></span>  </li>
+</ol>
+          <ol class="navbar-nav flex-grow-1" style="padding-right: 0.5rem;">
+            <li class="nav-item w-100">
+                <div class="lunet-search dropdown w-100">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input id="search-input" type="search" class="form-control" placeholder="Search... (Alt+s)" aria-label="Search" aria-controls="search-results" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-search-empty-message="Enter words to search..." data-search-no-results-message="No results found.">
+                    <ul id="search-results" class="dropdown-menu w-100 p-0" style="max-height: 50vh;" role="listbox" aria-labelledby="search-input"></ul>
+                  </div>
+                </div>
+            </li>
+          </ol>
+          <div class="d-flex align-items-center gap-2 flex-shrink-0 navbar-right">
+            <div class="dropdown">
+              <button
+                id="theme-mode-toggle"
+                class="btn btn-outline-secondary btn-sm lunet-theme-toggle dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Theme">
+                <i class="bi bi-circle-half" data-lunet-theme-toggle-icon aria-hidden="true"></i>
+                <span
+                  data-lunet-theme-toggle-label
+                  data-theme-system-label="System"
+                  data-theme-light-label="Light"
+                  data-theme-dark-label="Dark">Theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="theme-mode-toggle">
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="system"><i class="bi bi-circle-half me-2"></i>System</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="light"><i class="bi bi-sun-fill me-2"></i>Light</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="dark"><i class="bi bi-moon-stars-fill me-2"></i>Dark</button></li>
+              </ul>
+            </div>
+<ol id='nav-id-home2-0' class='navbar-nav nav-level0 show flex-shrink-0'>
+  <li id='nav-item-home2-1' class='nav-item '>
+    <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
+  <li id='nav-item-home2-2' class='nav-item '>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline.Core/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+</ol>
+          </div>
+        </div>
+      </nav>
+      <div class="lunet lunet-articles">
+        <section data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-timeout="1200" data-copy-tooltip="Copy to Clipboard." data-copy-tooltip-success="Copied!" data-copy-tooltip-error="Failed to copy!">
+
+<div class="container-xxl">
+  <div class="row">
+      <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
+      <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
+        <h3 class="toc-title">On this page</h3>
+        <nav class="js-toc"></nav>
+      </aside>
+      <!-- Main content column -->
+      <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
+        
+        <p id="lunet-results"></p>
+        <!-- Toggle buttons visible only on small screens -->
+        <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm d-xxl-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#docs-sidebar-toc"
+            aria-controls="docs-sidebar-toc"
+            aria-expanded="false"
+            aria-label="Toggle Table Of Contents">
+            On this page
+          </button>
+        </div>
+<!-- lunet:summarize -->
+<h1 id="editing-workflow">Editing Workflow</h1>
+<p><code>DemoSpline</code> is designed as the interactive validation host for <code>Spline.Core</code>.</p>
+<h2 id="core-editing-gestures">Core editing gestures</h2>
+<ul>
+<li>Click to add a new corner point.</li>
+<li><code>Alt+Click</code> or click-drag to add a smooth point.</li>
+<li><code>Shift+Click</code> to extend the current point selection.</li>
+<li>Double-click to toggle a point between smooth and corner behavior.</li>
+<li>Drag tangent handles to set explicit tangents.</li>
+<li><code>Shift+Drag</code> on a tangent handle to constrain it to axis-aligned directions.</li>
+<li>Press <code>Delete</code> or <code>Backspace</code> to remove selected points.</li>
+<li>Use arrow keys to nudge points by 1 pixel, or <code>Shift+Arrow</code> for 10 pixels.</li>
+</ul>
+<h2 id="tool-modes">Tool modes</h2>
+<p>The sample exposes several tool modes through the menu:</p>
+<ul>
+<li>Edit spline</li>
+<li>Trace from freehand</li>
+<li>Delete point tool</li>
+<li>Glyph editing</li>
+<li>Curve tuner</li>
+</ul>
+<h2 id="view-and-rendering-controls">View and rendering controls</h2>
+<p>The main window also exposes:</p>
+<ul>
+<li>grid visibility</li>
+<li>zoom reset, fit, in, and out</li>
+<li>raw cubic rendering toggle</li>
+<li>knot reduction</li>
+<li>curvature fairing</li>
+<li>span straightening</li>
+</ul>
+<p>These controls make it practical to compare interactive edits with the
+underlying library output.</p>
+
+      </div>
+  </div>
+</div>
+
+        </section>
+        <footer>
+          <hr>
+          <p>Copyright &copy; 2026, Wieslaw Soltes aka <a href="https://github.com/wieslawsoltes">wieslawsoltes</a> - Content licensed under the <a href="https://github.com/wieslawsoltes/Spline/blob/main/LICENSE">MIT license</a> | Site generated by <a href="https://github.com/lunet-io/lunet">lunet</a> hosted on <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>
