@@ -4,8 +4,14 @@ using System.Globalization;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Describes the command kinds stored in a <see cref="BezierPath"/>.
+    /// </summary>
     public enum PathOp { MoveTo, LineTo, CurveTo, ClosePath, Mark }
 
+    /// <summary>
+    /// Represents a path assembled from line and cubic Bezier commands.
+    /// </summary>
     public sealed class BezierPath
     {
         public readonly struct Command
@@ -84,6 +90,9 @@ namespace Spline.Core
         }
     }
 
+    /// <summary>
+    /// Stores the closest distance and marked segment produced by a path hit test.
+    /// </summary>
     public sealed class HitTestResult
     {
         public readonly double X;
@@ -139,4 +148,3 @@ namespace Spline.Core
         }
     }
 }
-

@@ -22,7 +22,7 @@ env:
   DOTNET_CLI_TELEMETRY_OPTOUT: true
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   SOLUTION_FILE: Spline.slnx
-  PACKAGE_PROJECT: src/Spline.Core/Spline.Core.csproj
+  PACKAGE_PROJECT: src/Spline/Spline.csproj
   PACKAGE_OUTPUT: artifacts/packages
 
 jobs:

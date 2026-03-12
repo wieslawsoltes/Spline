@@ -4,8 +4,14 @@ using System.Linq;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Solves and renders spline spans across a control-point sequence with corner and smooth joints.
+    /// </summary>
     public sealed class Spline
     {
+        /// <summary>
+        /// Represents a control point used by <see cref="Spline"/> during solving and rendering.
+        /// </summary>
         public sealed class CP
         {
             public Vec2 Pt;

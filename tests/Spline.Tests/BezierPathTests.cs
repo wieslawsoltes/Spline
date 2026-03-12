@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Spline.Core.Tests;
+namespace Spline.Tests;
 
 public sealed class BezierPathTests
 {

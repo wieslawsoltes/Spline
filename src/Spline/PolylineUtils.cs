@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Provides headless polyline simplification, corner detection, and resampling helpers.
+    /// </summary>
     public static class PolylineUtils
     {
         public static List<Vec2> RamerDouglasPeucker(IReadOnlyList<Vec2> points, double epsilon)

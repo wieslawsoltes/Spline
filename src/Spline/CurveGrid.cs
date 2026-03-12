@@ -4,6 +4,9 @@ using System.Text.Json;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Interpolates a symmetric grid of <see cref="TwoCubics"/> master samples.
+    /// </summary>
     public sealed class CurveGrid
     {
         public int N { get; }
@@ -104,4 +107,3 @@ namespace Spline.Core
         }
     }
 }
-

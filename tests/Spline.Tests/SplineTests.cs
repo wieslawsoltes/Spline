@@ -1,18 +1,18 @@
 using Xunit;
 
-namespace Spline.Core.Tests;
+namespace Spline.Tests;
 
 public sealed class SplineTests
 {
     [Fact]
     public void SolveMatchesUpstreamComputedTangentsAndCurvatures()
     {
-        var spline = new Spline(new[]
+        var spline = new SplinePath(new[]
         {
-            new Spline.CP(new Vec2(0, 0), "smooth", null, null),
-            new Spline.CP(new Vec2(1.0, 0.2), "smooth", null, null),
-            new Spline.CP(new Vec2(2.1, 1.1), "smooth", null, null),
-            new Spline.CP(new Vec2(3.2, 0.85), "smooth", null, null),
+            new SplinePath.CP(new Vec2(0, 0), "smooth", null, null),
+            new SplinePath.CP(new Vec2(1.0, 0.2), "smooth", null, null),
+            new SplinePath.CP(new Vec2(2.1, 1.1), "smooth", null, null),
+            new SplinePath.CP(new Vec2(3.2, 0.85), "smooth", null, null),
         }, false);
 
         spline.Solve();
@@ -35,12 +35,12 @@ public sealed class SplineTests
     [Fact]
     public void CurvatureBlendingAndRenderMatchUpstreamReferenceData()
     {
-        var spline = new Spline(new[]
+        var spline = new SplinePath(new[]
         {
-            new Spline.CP(new Vec2(0, 0), "smooth", null, null),
-            new Spline.CP(new Vec2(1.0, 0.25), "smooth", 0.8, null),
-            new Spline.CP(new Vec2(2.0, 1.2), "smooth", null, null),
-            new Spline.CP(new Vec2(3.0, 1.0), "corner", null, null),
+            new SplinePath.CP(new Vec2(0, 0), "smooth", null, null),
+            new SplinePath.CP(new Vec2(1.0, 0.25), "smooth", 0.8, null),
+            new SplinePath.CP(new Vec2(2.0, 1.2), "smooth", null, null),
+            new SplinePath.CP(new Vec2(3.0, 1.0), "corner", null, null),
         }, false);
 
         spline.Solve();

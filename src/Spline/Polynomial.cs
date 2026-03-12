@@ -2,6 +2,9 @@ using System;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Represents a polynomial defined by ascending-order coefficients.
+    /// </summary>
     public sealed class Polynomial
     {
         public double[] C { get; }
@@ -35,4 +38,3 @@ namespace Spline.Core
         }
     }
 }
-

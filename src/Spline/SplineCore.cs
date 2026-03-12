@@ -5,6 +5,9 @@ using static Spline.Core.MathUtils;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Defines a family of chord-normalized curves controlled by two endpoint tangent angles.
+    /// </summary>
     public abstract class TwoParamCurve
     {
         public abstract IReadOnlyList<Vec2> Render(double th0, double th1);
@@ -68,6 +71,9 @@ namespace Spline.Core
         }
     }
 
+    /// <summary>
+    /// Implements the default two-parameter curve family used by the package solver.
+    /// </summary>
     public sealed class MyCurve : TwoParamCurve
     {
         public override IReadOnlyList<Vec2> Render(double th0, double th1)
@@ -181,6 +187,9 @@ namespace Spline.Core
         }
     }
 
+    /// <summary>
+    /// Solves tangent angles across a polyline using a two-parameter curve family.
+    /// </summary>
     public sealed class TwoParamSpline
     {
         private readonly TwoParamCurve _curve;

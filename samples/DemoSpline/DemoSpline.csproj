@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Spline.Core\Spline.Core.csproj" />
+    <ProjectReference Include="..\..\src\Spline\Spline.csproj" />
     <PackageReference Include="Avalonia" />
     <PackageReference Include="Avalonia.Desktop" />
     <PackageReference Include="Avalonia.Themes.Fluent" />

@@ -24,7 +24,7 @@ env:
   DOTNET_CLI_TELEMETRY_OPTOUT: true
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   SOLUTION_FILE: Spline.slnx
-  PACKAGE_PROJECT: src/Spline.Core/Spline.Core.csproj
+  PACKAGE_PROJECT: src/Spline/Spline.csproj
   PACKAGE_OUTPUT: artifacts/packages
 
 jobs:
@@ -139,7 +139,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Spline.Core v${{ needs.metadata.outputs.version }}
+          name: Spline v${{ needs.metadata.outputs.version }}
           tag_name: ${{ needs.metadata.outputs.tag }}
           target_commitish: ${{ github.sha }}
           draft: false

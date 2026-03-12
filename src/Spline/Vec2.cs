@@ -2,6 +2,9 @@ using System;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Represents a 2D vector used throughout the spline geometry pipeline.
+    /// </summary>
     public readonly struct Vec2
     {
         public readonly double X;
@@ -34,4 +37,3 @@ namespace Spline.Core
         public static Vec2 operator /(in Vec2 a, double s) => new Vec2(a.X / s, a.Y / s);
     }
 }
-

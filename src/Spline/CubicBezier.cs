@@ -2,6 +2,9 @@ using System;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Evaluates and differentiates a cubic Bezier segment in normalized local space.
+    /// </summary>
     public sealed class CubicBezier
     {
         // Coordinates: [x0,y0,x1,y1,x2,y2,x3,y3]
@@ -96,4 +99,3 @@ namespace Spline.Core
         }
     }
 }
-

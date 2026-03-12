@@ -5,6 +5,6 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="samples/DemoSpline/DemoSpline.csproj" />
-  <Project Path="src/Spline.Core/Spline.Core.csproj" />
-  <Project Path="tests/Spline.Core.Tests/Spline.Core.Tests.csproj" />
+  <Project Path="src/Spline/Spline.csproj" />
+  <Project Path="tests/Spline.Tests/Spline.Tests.csproj" />
 </Solution>

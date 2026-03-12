@@ -2,6 +2,9 @@ using System;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Provides low-level numerical helpers used by the spline implementation.
+    /// </summary>
     public static class MathUtils
     {
         public static double Mod2Pi(double th)

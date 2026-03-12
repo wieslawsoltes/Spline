@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using Xunit.Sdk;
 
-namespace Spline.Core.Tests;
+namespace Spline.Tests;
 
 internal static class TestAssert
 {

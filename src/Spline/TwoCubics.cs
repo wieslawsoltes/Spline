@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Spline.Core
 {
+    /// <summary>
+    /// Stores a two-cubic curve family sample used by the curve-grid tuner workflow.
+    /// </summary>
     public sealed class TwoCubics
     {
         // a[0] and a[5] are arm lengths; a[1..4] are interior points coords
@@ -145,4 +148,3 @@ namespace Spline.Core
         }
     }
 }
-
