@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Testing and Validation | Spline">
-<meta name="twitter:description" content="Testing and Validation Test project Path: tests/Spline.Tests/Spline.Tests.csproj Framework: xUnit v3 Scope: parity, geometry, spline solving, and utility behavior Validation commands dotnet test Spline.slnx dotnet build Spline.slnx bash ./check-docs.sh What each command protects dotnet test protects numerical behavior and translated upstream parity dotnet build catches solution-level integration regressions check-docs.sh protects article generation, API docs generation, and routing Manual validation...">
+<meta name="twitter:description" content="Testing and Validation Test project Path: tests/Spline.Tests/Spline.Tests.csproj Framework: xUnit v3 Scope: parity, geometry, fair-spline solving, CAD B-spline interpolation, and utility behavior Validation commands dotnet test Spline.slnx dotnet build Spline.slnx bash ./check-docs.sh The Build GitHub Actions workflow also executes the test project before package creation, so pull requests cannot rely on compilation alone. What each command protects dotnet test protects numerical behavior, translated upstream parity, global B-spline interpolation, endpoint derivative constraints,...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Testing and Validation | Spline">
 <meta property="og:title" content="Testing and Validation | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Testing and Validation Test project Path: tests/Spline.Tests/Spline.Tests.csproj Framework: xUnit v3 Scope: parity, geometry, spline solving, and utility behavior Validation commands dotnet test Spline.slnx dotnet build Spline.slnx bash ./check-docs.sh What each command protects dotnet test protects numerical behavior and translated upstream parity dotnet build catches solution-level integration regressions check-docs.sh protects article generation, API docs generation, and routing Manual validation...">
+<meta property="og:description" content="Testing and Validation Test project Path: tests/Spline.Tests/Spline.Tests.csproj Framework: xUnit v3 Scope: parity, geometry, fair-spline solving, CAD B-spline interpolation, and utility behavior Validation commands dotnet test Spline.slnx dotnet build Spline.slnx bash ./check-docs.sh The Build GitHub Actions workflow also executes the test project before package creation, so pull requests cannot rely on compilation alone. What each command protects dotnet test protects numerical behavior, translated upstream parity, global B-spline interpolation, endpoint derivative constraints,...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Testing and Validation | Spline">
   </head>
@@ -168,19 +168,38 @@
 <ul>
 <li>Path: <code>tests/Spline.Tests/Spline.Tests.csproj</code></li>
 <li>Framework: xUnit v3</li>
-<li>Scope: parity, geometry, spline solving, and utility behavior</li>
+<li>Scope: parity, geometry, fair-spline solving, CAD B-spline interpolation, and utility behavior</li>
 </ul>
 <h2 id="validation-commands">Validation commands</h2>
 <pre><code class="language-bash">dotnet test Spline.slnx
 dotnet build Spline.slnx
 bash ./check-docs.sh
 </code></pre>
+<p>The Build GitHub Actions workflow also executes the test project before package
+creation, so pull requests cannot rely on compilation alone.</p>
 <h2 id="what-each-command-protects">What each command protects</h2>
 <ul>
-<li><code>dotnet test</code> protects numerical behavior and translated upstream parity</li>
-<li><code>dotnet build</code> catches solution-level integration regressions</li>
-<li><code>check-docs.sh</code> protects article generation, API docs generation, and routing</li>
+<li><code>dotnet test</code> protects numerical behavior, translated upstream parity, global B-spline interpolation, endpoint derivative constraints, and exact Bezier conversion</li>
+<li><code>dotnet build</code> catches solution-level integration regressions, including both sample applications</li>
+<li><code>check-docs.sh</code> protects article generation, generated API pages (including the B-spline API), and routing</li>
 </ul>
+<h2 id="global-b-spline-validation">Global B-spline validation</h2>
+<p><code>GlobalBSplineTests</code> includes checks for:</p>
+<ul>
+<li>known reference fit parameters and control points</li>
+<li>exact reconstruction of every fit point</li>
+<li>endpoint derivative reproduction</li>
+<li>direction-mode derivative magnitude estimation</li>
+<li>explicit derivative mode</li>
+<li>chord-length, centripetal, and uniform parameterization</li>
+<li>two-point Hermite reduction</li>
+<li>B-spline/Bezier span equivalence</li>
+<li>a 4,096-fit-point solve to exercise linear-size behavior</li>
+<li>invalid and degenerate input rejection</li>
+</ul>
+<p>The large-input test intentionally avoids wall-clock assertions. CI timing is
+noisy; the test instead validates the structural O(n) invariants and numerical
+accuracy on a data set large enough to expose accidental dense-matrix behavior.</p>
 <h2 id="manual-validation">Manual validation</h2>
 <p>Not every regression is purely numerical. Use <code>DemoSpline</code> for:</p>
 <ul>
@@ -189,6 +208,8 @@ bash ./check-docs.sh
 <li>tuner workflows</li>
 <li>render and hit-test sanity checks</li>
 </ul>
+<p>Use <code>GlobalBSplineSample</code> to inspect solved CAD control points, knots, fit-point
+reconstruction, and SVG output without UI dependencies.</p>
 
       </div>
   </div>

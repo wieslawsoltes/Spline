@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html data-lunet-theme-mode="system" data-lunet-theme-storage-key="lunet-theme" data-lunet-css-prefix="lunet" lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="lunet 1.0.10.0">
+    <script>(function(){const root=document.documentElement;const key=root.getAttribute("data-lunet-theme-storage-key")||"lunet-theme";const fallback=root.getAttribute("data-lunet-theme-mode")||"system";let stored=null;try{stored=localStorage.getItem(key);}catch(_){stored=null;}const mode=(stored==="light"||stored==="dark"||stored==="system")?stored:fallback;const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const resolved=mode==="system"?(prefersDark?"dark":"light"):mode;root.setAttribute("data-lunet-theme-mode",mode);root.setAttribute("data-bs-theme",resolved);}());</script>
+    <link rel='icon' href='/Spline/favicon.ico' sizes='32x32'>
+    <title>Global B-Spline Interpolation | Spline</title>
+    <link rel="stylesheet" href="/Spline/css/lite.css">
+    <script src="/Spline/js/lite-defer.js" defer></script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wieslawsoltes">
+<meta name="twitter:title" content="Global B-Spline Interpolation | Spline">
+<meta name="twitter:description" content="Global B-Spline Interpolation Use GlobalBSpline when your source data is expressed as fit points plus endpoint tangents and you need a real cubic B-spline representation rather than only a Bezier rendering result. Minimal usage using Spline; var fitPoints = new[] { new Vec2(0, 0), new Vec2(40, 70), new Vec2(90, 100), new Vec2(150, 75), new Vec2(210, 20), new Vec2(280, 0), }; BSplineCurve curve = GlobalBSpline.Interpolate( fitPoints, startTangent: new Vec2(1.0, 0.35), endTangent:...">
+<meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
+<meta name="twitter:image:alt" content="Global B-Spline Interpolation | Spline">
+<meta property="og:title" content="Global B-Spline Interpolation | Spline">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
+<meta property="og:description" content="Global B-Spline Interpolation Use GlobalBSpline when your source data is expressed as fit points plus endpoint tangents and you need a real cubic B-spline representation rather than only a Bezier rendering result. Minimal usage using Spline; var fitPoints = new[] { new Vec2(0, 0), new Vec2(40, 70), new Vec2(90, 100), new Vec2(150, 75), new Vec2(210, 20), new Vec2(280, 0), }; BSplineCurve curve = GlobalBSpline.Interpolate( fitPoints, startTangent: new Vec2(1.0, 0.35), endTangent:...">
+<meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
+<meta property="og:image:alt" content="Global B-Spline Interpolation | Spline">
+  </head>
+  <body>
+
+    <div id="lunet" class="container">
+      <nav class="navbar navbar-expand-md sticky-top">
+        <a class="navbar-brand" href="/Spline/">
+          <img class="lunet-logo" src="/Spline/img/lunet-logo.png" alt="Spline" width="96" height="96">
+          <span class="visually-hidden">Home</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-between">
+<ol id='nav-id-home-0' class='navbar-nav nav-level0 show '>
+  <li id='nav-item-home-1' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/' class='nav-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a></span>  </li>
+  <li id='nav-item-home-2' class='nav-item  active'>
+    <span class='nav-item-row'><a href='/Spline/articles/' class='nav-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a></span>  </li>
+</ol>
+          <ol class="navbar-nav flex-grow-1" style="padding-right: 0.5rem;">
+            <li class="nav-item w-100">
+                <div class="lunet-search dropdown w-100">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input id="search-input" type="search" class="form-control" placeholder="Search... (Alt+s)" aria-label="Search" aria-controls="search-results" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-search-empty-message="Enter words to search..." data-search-no-results-message="No results found.">
+                    <ul id="search-results" class="dropdown-menu w-100 p-0" style="max-height: 50vh;" role="listbox" aria-labelledby="search-input"></ul>
+                  </div>
+                </div>
+            </li>
+          </ol>
+          <div class="d-flex align-items-center gap-2 flex-shrink-0 navbar-right">
+            <div class="dropdown">
+              <button
+                id="theme-mode-toggle"
+                class="btn btn-outline-secondary btn-sm lunet-theme-toggle dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Theme">
+                <i class="bi bi-circle-half" data-lunet-theme-toggle-icon aria-hidden="true"></i>
+                <span
+                  data-lunet-theme-toggle-label
+                  data-theme-system-label="System"
+                  data-theme-light-label="Light"
+                  data-theme-dark-label="Dark">Theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="theme-mode-toggle">
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="system"><i class="bi bi-circle-half me-2"></i>System</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="light"><i class="bi bi-sun-fill me-2"></i>Light</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="dark"><i class="bi bi-moon-stars-fill me-2"></i>Dark</button></li>
+              </ul>
+            </div>
+<ol id='nav-id-home2-0' class='navbar-nav nav-level0 show flex-shrink-0'>
+  <li id='nav-item-home2-1' class='nav-item '>
+    <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
+  <li id='nav-item-home2-2' class='nav-item '>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
+</ol>
+          </div>
+        </div>
+      </nav>
+      <div class="lunet lunet-articles">
+        <section data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-timeout="1200" data-copy-tooltip="Copy to Clipboard." data-copy-tooltip-success="Copied!" data-copy-tooltip-error="Failed to copy!">
+
+<div class="container-xxl">
+  <div class="row">
+      <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class='lunet-menu-async' data-lunet-menu-partial='/Spline/partials/menus/menu-guides.2bf7fe549304d6a98c9020f952a438c9.html' data-lunet-menu-open='menu-id-guides-0' data-lunet-menu-active='menu-item-guides-3,menu-item-guides-0'><div class='menu-loading text-body-secondary small'>Loading menu…</div></div>
+        </div>
+      </nav>
+      <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
+      <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
+        <h3 class="toc-title">On this page</h3>
+        <nav class="js-toc"></nav>
+      </aside>
+      <!-- Main content column -->
+      <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/guides/' class='breadcrumb-link  '>Guides</a>  </li>
+          <li class='breadcrumb-item  active'>
+            Global B-Spline Interpolation  </li>
+        </ol>
+
+        <p id="lunet-results"></p>
+        <!-- Toggle buttons visible only on small screens -->
+        <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
+          <button
+            class="btn btn-outline-secondary btn-sm d-xxl-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#docs-sidebar-toc"
+            aria-controls="docs-sidebar-toc"
+            aria-expanded="false"
+            aria-label="Toggle Table Of Contents">
+            On this page
+          </button>
+        </div>
+<!-- lunet:summarize -->
+<h1 id="global-b-spline-interpolation">Global B-Spline Interpolation</h1>
+<p>Use <code>GlobalBSpline</code> when your source data is expressed as fit points plus endpoint
+tangents and you need a real cubic B-spline representation rather than only a
+Bezier rendering result.</p>
+<h2 id="minimal-usage">Minimal usage</h2>
+<pre><code class="language-csharp">using Spline;
+
+var fitPoints = new[]
+{
+    new Vec2(0, 0),
+    new Vec2(40, 70),
+    new Vec2(90, 100),
+    new Vec2(150, 75),
+    new Vec2(210, 20),
+    new Vec2(280, 0),
+};
+
+BSplineCurve curve = GlobalBSpline.Interpolate(
+    fitPoints,
+    startTangent: new Vec2(1.0, 0.35),
+    endTangent: new Vec2(1.0, -0.20));
+</code></pre>
+<p>The default interpretation is <code>BSplineTangentMode.Direction</code>. Tangent vector
+length is ignored; only direction is used. The solver estimates both endpoint
+derivative magnitudes from total chord length.</p>
+<h2 id="inspect-the-cad-representation">Inspect the CAD representation</h2>
+<pre><code class="language-csharp">Console.WriteLine(curve.Degree); // 3
+
+foreach (var controlPoint in curve.ControlPoints)
+    Console.WriteLine($&quot;P = {controlPoint.X}, {controlPoint.Y}&quot;);
+
+foreach (double knot in curve.Knots)
+    Console.WriteLine($&quot;U = {knot}&quot;);
+
+foreach (double weight in curve.Weights)
+    Console.WriteLine($&quot;W = {weight}&quot;); // always 1.0 today
+</code></pre>
+<p><code>ControlPoints</code> are B-spline control points, not fit points. The curve generally
+does not pass through them.</p>
+<h2 id="get-fit-parameters-and-effective-derivatives">Get fit parameters and effective derivatives</h2>
+<p>Use <code>InterpolateDetailed</code> when import/export, validation, or diagnostics need the
+parameter assigned to each fit point:</p>
+<pre><code class="language-csharp">GlobalBSplineResult result = GlobalBSpline.InterpolateDetailed(
+    fitPoints,
+    new Vec2(1, 0.35),
+    new Vec2(1, -0.20));
+
+BSplineCurve curve = result.Curve;
+
+for (int i = 0; i &lt; fitPoints.Length; i++)
+{
+    double u = result.FitParameters[i];
+    Vec2 reconstructed = curve.Evaluate(u);
+}
+
+Vec2 actualStartDerivative = result.StartDerivative;
+Vec2 actualEndDerivative = result.EndDerivative;
+</code></pre>
+<p>For a valid solve, <code>curve.Evaluate(result.FitParameters[i])</code> reproduces the input
+fit point to floating-point accuracy.</p>
+<h2 id="tangent-direction-vs-derivative">Tangent direction vs derivative</h2>
+<p>There are two endpoint modes.</p>
+<h3 id="direction-mode">Direction mode</h3>
+<pre><code class="language-csharp">var options = new GlobalBSplineOptions
+{
+    TangentMode = BSplineTangentMode.Direction,
+};
+</code></pre>
+<p>The supplied vector is normalized. Its effective derivative magnitude is:</p>
+<pre><code class="language-text">total chord length * tangent scale
+</code></pre>
+<p>This follows the standard CAGD recommendation for cases where only tangent
+direction is known.</p>
+<p>You can shape the ends without changing direction:</p>
+<pre><code class="language-csharp">var options = new GlobalBSplineOptions
+{
+    TangentMode = BSplineTangentMode.Direction,
+    StartTangentScale = 0.75,
+    EndTangentScale = 1.25,
+};
+</code></pre>
+<h3 id="derivative-mode">Derivative mode</h3>
+<p>If the input already supplies first derivatives with respect to the normalized
+parameter <code>u in [0,1]</code>, preserve their magnitudes:</p>
+<pre><code class="language-csharp">var options = new GlobalBSplineOptions
+{
+    TangentMode = BSplineTangentMode.Derivative,
+};
+
+var curve = GlobalBSpline.Interpolate(
+    fitPoints,
+    startDerivative,
+    endDerivative,
+    options: options);
+</code></pre>
+<p><code>curve.EvaluateDerivative(0)</code> and <code>curve.EvaluateDerivative(1)</code> will reproduce the
+requested derivatives within floating-point accuracy.</p>
+<h2 id="parameterization">Parameterization</h2>
+<p>The parameterization changes the control net and therefore the shape between fit
+points, while preserving interpolation.</p>
+<h3 id="chord-length">Chord length</h3>
+<pre><code class="language-csharp">Parameterization = BSplineParameterization.ChordLength
+</code></pre>
+<p>This is the default and is a strong general-purpose choice for engineering data.
+Parameter increments are proportional to Euclidean distance between fit points.</p>
+<h3 id="centripetal">Centripetal</h3>
+<pre><code class="language-csharp">Parameterization = BSplineParameterization.Centripetal
+</code></pre>
+<p>Parameter increments are proportional to the square root of chord length. This
+can reduce overshoot when spacing changes abruptly or points form sharp turns.</p>
+<h3 id="uniform">Uniform</h3>
+<pre><code class="language-csharp">Parameterization = BSplineParameterization.Uniform
+</code></pre>
+<p>Every adjacent pair receives the same parameter interval regardless of geometric
+distance. Use this when index spacing has semantic meaning or when reproducing a
+known uniform construction.</p>
+<h2 id="evaluate-the-curve">Evaluate the curve</h2>
+<pre><code class="language-csharp">Vec2 midpoint = curve.Evaluate(0.5);
+Vec2 tangent = curve.EvaluateDerivative(0.5);
+Vec2 secondDerivative = curve.EvaluateDerivative(0.5, order: 2);
+</code></pre>
+<p>Evaluation uses de Boor's algorithm. Cost depends primarily on spline degree,
+not total control-point count after the containing knot span has been found.</p>
+<h2 id="convert-to-bezier-and-svg">Convert to Bezier and SVG</h2>
+<p>The package's rendering stack is Bezier-based, so cubic B-splines can be bridged
+without approximation:</p>
+<pre><code class="language-csharp">IReadOnlyList&lt;CubicBezier&gt; segments = curve.ToBezierSegments();
+BezierPath path = curve.ToBezierPath();
+string svg = curve.ToSvgPath();
+</code></pre>
+<p>Each non-empty cubic knot span becomes exactly one cubic Bezier segment.</p>
+<h2 id="example-using-explicit-derivatives">Example using explicit derivatives</h2>
+<pre><code class="language-csharp">var fitPoints = new[]
+{
+    new Vec2(0, 0),
+    new Vec2(20, 40),
+    new Vec2(60, 35),
+    new Vec2(100, 0),
+};
+
+var result = GlobalBSpline.InterpolateDetailed(
+    fitPoints,
+    startTangent: new Vec2(80, 15),
+    endTangent: new Vec2(70, -30),
+    options: new GlobalBSplineOptions
+    {
+        Parameterization = BSplineParameterization.Centripetal,
+        TangentMode = BSplineTangentMode.Derivative,
+    });
+
+for (int i = 0; i &lt; fitPoints.Length; i++)
+{
+    var p = result.Curve.Evaluate(result.FitParameters[i]);
+    Console.WriteLine($&quot;fit {i}: ({p.X:R}, {p.Y:R})&quot;);
+}
+</code></pre>
+<h2 id="validation-rules">Validation rules</h2>
+<p>The production solver rejects data that would make the interpolation numerically
+undefined or misleading:</p>
+<ul>
+<li>fewer than two fit points</li>
+<li>non-finite coordinates</li>
+<li>zero or non-finite endpoint tangents</li>
+<li>consecutive points that collapse relative to total chord length</li>
+<li>non-positive tangent scales</li>
+<li>unsupported degree values</li>
+<li>singular or numerically unsafe tridiagonal pivots</li>
+</ul>
+<p>The default relative point tolerance is <code>1e-12</code> of total chord length. It can be
+changed through <code>GlobalBSplineOptions.RelativePointTolerance</code> when working at
+extreme scales.</p>
+<h2 id="degree-support">Degree support</h2>
+<p><code>GlobalBSpline</code> currently implements the specialized production path for cubic
+B-splines only:</p>
+<pre><code class="language-csharp">GlobalBSpline.Interpolate(..., degree: 3)
+</code></pre>
+<p>Cubic interpolation is intentionally specialized because it produces a
+tridiagonal system and therefore gives deterministic O(n) construction with very
+small constant factors. <code>BSplineCurve</code> itself can represent and evaluate other
+non-rational B-spline degrees when constructed directly.</p>
+<h2 id="complete-runnable-sample">Complete runnable sample</h2>
+<p>The repository includes:</p>
+<pre><code class="language-text">samples/GlobalBSplineSample/
+</code></pre>
+<p>Run it with:</p>
+<pre><code class="language-bash">dotnet run --project samples/GlobalBSplineSample/GlobalBSplineSample.csproj
+</code></pre>
+<p>It prints fit-point reconstruction, the solved control net, knot vector, and SVG
+path output.</p>
+
+      </div>
+  </div>
+</div>
+
+        </section>
+        <footer>
+          <hr>
+          <p>Copyright &copy; 2026, Wieslaw Soltes aka <a href="https://github.com/wieslawsoltes">wieslawsoltes</a> - Content licensed under the <a href="https://github.com/wieslawsoltes/Spline/blob/main/LICENSE">MIT license</a> | Site generated by <a href="https://github.com/lunet-io/lunet">lunet</a> hosted on <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>

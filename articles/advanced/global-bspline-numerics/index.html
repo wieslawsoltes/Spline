@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html data-lunet-theme-mode="system" data-lunet-theme-storage-key="lunet-theme" data-lunet-css-prefix="lunet" lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="lunet 1.0.10.0">
+    <script>(function(){const root=document.documentElement;const key=root.getAttribute("data-lunet-theme-storage-key")||"lunet-theme";const fallback=root.getAttribute("data-lunet-theme-mode")||"system";let stored=null;try{stored=localStorage.getItem(key);}catch(_){stored=null;}const mode=(stored==="light"||stored==="dark"||stored==="system")?stored:fallback;const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const resolved=mode==="system"?(prefersDark?"dark":"light"):mode;root.setAttribute("data-lunet-theme-mode",mode);root.setAttribute("data-bs-theme",resolved);}());</script>
+    <link rel='icon' href='/Spline/favicon.ico' sizes='32x32'>
+    <title>Global B-Spline Numerics and Performance | Spline</title>
+    <link rel="stylesheet" href="/Spline/css/lite.css">
+    <script src="/Spline/js/lite-defer.js" defer></script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wieslawsoltes">
+<meta name="twitter:title" content="Global B-Spline Numerics and Performance | Spline">
+<meta name="twitter:description" content="Global B-Spline Numerics and Performance GlobalBSpline is intentionally specialized around the open cubic interpolation case because that case admits a compact, deterministic, linear-time solver. Pipeline For n + 1 fit points: validate finite geometry and non-degenerate adjacent chords compute normalized fit parameters build a clamped cubic knot vector resolve start/end derivative vectors compute the two endpoint-adjacent control points directly assemble the tridiagonal interior system solve it in place...">
+<meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
+<meta name="twitter:image:alt" content="Global B-Spline Numerics and Performance | Spline">
+<meta property="og:title" content="Global B-Spline Numerics and Performance | Spline">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
+<meta property="og:description" content="Global B-Spline Numerics and Performance GlobalBSpline is intentionally specialized around the open cubic interpolation case because that case admits a compact, deterministic, linear-time solver. Pipeline For n + 1 fit points: validate finite geometry and non-degenerate adjacent chords compute normalized fit parameters build a clamped cubic knot vector resolve start/end derivative vectors compute the two endpoint-adjacent control points directly assemble the tridiagonal interior system solve it in place...">
+<meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
+<meta property="og:image:alt" content="Global B-Spline Numerics and Performance | Spline">
+  </head>
+  <body>
+
+    <div id="lunet" class="container">
+      <nav class="navbar navbar-expand-md sticky-top">
+        <a class="navbar-brand" href="/Spline/">
+          <img class="lunet-logo" src="/Spline/img/lunet-logo.png" alt="Spline" width="96" height="96">
+          <span class="visually-hidden">Home</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-between">
+<ol id='nav-id-home-0' class='navbar-nav nav-level0 show '>
+  <li id='nav-item-home-1' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/' class='nav-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a></span>  </li>
+  <li id='nav-item-home-2' class='nav-item  active'>
+    <span class='nav-item-row'><a href='/Spline/articles/' class='nav-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a></span>  </li>
+</ol>
+          <ol class="navbar-nav flex-grow-1" style="padding-right: 0.5rem;">
+            <li class="nav-item w-100">
+                <div class="lunet-search dropdown w-100">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input id="search-input" type="search" class="form-control" placeholder="Search... (Alt+s)" aria-label="Search" aria-controls="search-results" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-search-empty-message="Enter words to search..." data-search-no-results-message="No results found.">
+                    <ul id="search-results" class="dropdown-menu w-100 p-0" style="max-height: 50vh;" role="listbox" aria-labelledby="search-input"></ul>
+                  </div>
+                </div>
+            </li>
+          </ol>
+          <div class="d-flex align-items-center gap-2 flex-shrink-0 navbar-right">
+            <div class="dropdown">
+              <button
+                id="theme-mode-toggle"
+                class="btn btn-outline-secondary btn-sm lunet-theme-toggle dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Theme">
+                <i class="bi bi-circle-half" data-lunet-theme-toggle-icon aria-hidden="true"></i>
+                <span
+                  data-lunet-theme-toggle-label
+                  data-theme-system-label="System"
+                  data-theme-light-label="Light"
+                  data-theme-dark-label="Dark">Theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="theme-mode-toggle">
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="system"><i class="bi bi-circle-half me-2"></i>System</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="light"><i class="bi bi-sun-fill me-2"></i>Light</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="dark"><i class="bi bi-moon-stars-fill me-2"></i>Dark</button></li>
+              </ul>
+            </div>
+<ol id='nav-id-home2-0' class='navbar-nav nav-level0 show flex-shrink-0'>
+  <li id='nav-item-home2-1' class='nav-item '>
+    <span class='nav-item-row'><a href='https://github.com/wieslawsoltes/Spline' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
+  <li id='nav-item-home2-2' class='nav-item '>
+    <span class='nav-item-row'><a href='https://www.nuget.org/packages/Spline/' class='nav-link  btn btn-primary'><i class="bi bi-box-seam"></i> NuGet</a></span>  </li>
+  <li id='nav-item-home2-3' class='nav-item '>
+    <span class='nav-item-row'><a href='/Spline/articles/reference/api-coverage-index/' class='nav-link  btn btn-secondary'><i class="bi bi-journal-code"></i> API</a></span>  </li>
+</ol>
+          </div>
+        </div>
+      </nav>
+      <div class="lunet lunet-articles">
+        <section data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-timeout="1200" data-copy-tooltip="Copy to Clipboard." data-copy-tooltip-success="Copied!" data-copy-tooltip-error="Failed to copy!">
+
+<div class="container-xxl">
+  <div class="row">
+      <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ol id='menu-id-advanced-0' class='menu menu-level0 show '>
+            <li id='menu-item-advanced-1' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/' class='menu-link  '>Advanced</a></span>  </li>
+            <li id='menu-item-advanced-2' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/freehand-tracing/' class='menu-link  '>Freehand Tracing</a></span>  </li>
+            <li id='menu-item-advanced-3' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/curve-grid-and-tuning/' class='menu-link  '>Curve Grid and Tuning</a></span>  </li>
+            <li id='menu-item-advanced-4' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/numerical-behavior/' class='menu-link  '>Numerical Behavior</a></span>  </li>
+            <li id='menu-item-advanced-5' class='menu-item  active'>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/global-bspline-numerics/' class='menu-link  '>Global B-Spline Numerics and Performance</a></span>  </li>
+            <li id='menu-item-advanced-6' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/advanced/testing-and-parity/' class='menu-link  '>Testing and Parity</a></span>  </li>
+          </ol>
+
+        </div>
+      </nav>
+      <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
+      <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
+        <h3 class="toc-title">On this page</h3>
+        <nav class="js-toc"></nav>
+      </aside>
+      <!-- Main content column -->
+      <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/Spline/articles/advanced/' class='breadcrumb-link  '>Advanced</a>  </li>
+          <li class='breadcrumb-item  active'>
+            Global B-Spline Numerics and Performance  </li>
+        </ol>
+
+        <p id="lunet-results"></p>
+        <!-- Toggle buttons visible only on small screens -->
+        <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
+          <button
+            class="btn btn-outline-secondary btn-sm d-xxl-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#docs-sidebar-toc"
+            aria-controls="docs-sidebar-toc"
+            aria-expanded="false"
+            aria-label="Toggle Table Of Contents">
+            On this page
+          </button>
+        </div>
+<!-- lunet:summarize -->
+<h1 id="global-b-spline-numerics-and-performance">Global B-Spline Numerics and Performance</h1>
+<p><code>GlobalBSpline</code> is intentionally specialized around the open cubic interpolation
+case because that case admits a compact, deterministic, linear-time solver.</p>
+<h2 id="pipeline">Pipeline</h2>
+<p>For <code>n + 1</code> fit points:</p>
+<ol>
+<li>validate finite geometry and non-degenerate adjacent chords</li>
+<li>compute normalized fit parameters</li>
+<li>build a clamped cubic knot vector</li>
+<li>resolve start/end derivative vectors</li>
+<li>compute the two endpoint-adjacent control points directly</li>
+<li>assemble the tridiagonal interior system</li>
+<li>solve it in place</li>
+<li>construct immutable <code>BSplineCurve</code> state</li>
+</ol>
+<p>No iterative optimization is required.</p>
+<h2 id="knot-structure">Knot structure</h2>
+<p>The output has <code>n + 3</code> control points and <code>n + 7</code> knots:</p>
+<pre><code class="language-text">fit points      Q0 ... Qn
+control points  P0 ... P(n+2)
+knots           0 0 0 0 u1 ... u(n-1) 1 1 1 1
+</code></pre>
+<p>The interior knots are simple, so a non-degenerate cubic curve is <code>C2</code> across
+those knots.</p>
+<h2 id="endpoint-derivative-equations">Endpoint derivative equations</h2>
+<p>Clamping makes endpoint derivatives local:</p>
+<pre><code class="language-text">C'(0) = 3 / U4 * (P1 - P0)
+C'(1) = 3 / (1 - U(n+2)) * (P(n+2) - P(n+1))
+</code></pre>
+<p>Therefore <code>P1</code> and <code>P(n+1)</code> do not belong to the global linear solve.</p>
+<h2 id="tridiagonal-interior-system">Tridiagonal interior system</h2>
+<p>At an interior fit parameter <code>u[k]</code>, which is also a simple cubic knot, the
+fit-point equation has three non-zero basis coefficients:</p>
+<pre><code class="language-text">Q[k] = a[k] P[k] + b[k] P[k+1] + c[k] P[k+2]
+</code></pre>
+<p>After subtracting the already-known endpoint-adjacent terms, the unknowns are
+<code>P2 ... Pn</code>. Every row touches at most the previous, current, and next unknown,
+so the matrix is tridiagonal.</p>
+<p>The implementation performs forward elimination and backward substitution in
+place on three scalar diagonals and a <code>Vec2</code> right-hand side.</p>
+<h2 id="complexity">Complexity</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Operation</th>
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">Additional memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Distance/parameter generation</td>
+<td style="text-align: right;">O(n)</td>
+<td style="text-align: right;">O(n)</td>
+</tr>
+<tr>
+<td>Knot construction</td>
+<td style="text-align: right;">O(n)</td>
+<td style="text-align: right;">O(n)</td>
+</tr>
+<tr>
+<td>Tridiagonal assembly</td>
+<td style="text-align: right;">O(n)</td>
+<td style="text-align: right;">O(n)</td>
+</tr>
+<tr>
+<td>Tridiagonal solve</td>
+<td style="text-align: right;">O(n)</td>
+<td style="text-align: right;">O(n)</td>
+</tr>
+<tr>
+<td>One de Boor evaluation</td>
+<td style="text-align: right;">O(log n + p^2)</td>
+<td style="text-align: right;">O(p)</td>
+</tr>
+<tr>
+<td>Cubic Bezier conversion</td>
+<td style="text-align: right;">O(n)</td>
+<td style="text-align: right;">O(n) output</td>
+</tr>
+</tbody>
+</table>
+<p>For the interpolator <code>p = 3</code>, so per-evaluation polynomial work is constant.</p>
+<h2 id="allocation-strategy">Allocation strategy</h2>
+<p>The global solve uses flat arrays only. Basis-function scratch storage is a
+four-element stack span. No dense <code>double[,]</code> matrix is allocated.</p>
+<p><code>BSplineCurve.Evaluate</code> uses stack storage for normal spline degrees. Derivative
+evaluation derives the control polygon into stack storage for small curves and
+uses <code>ArrayPool&lt;Vec2&gt;</code> for large control nets to avoid persistent large temporary
+allocations.</p>
+<h2 id="stable-length-calculation">Stable length calculation</h2>
+<p>Geometry validation and tangent normalization use a scaled hypotenuse calculation
+rather than directly evaluating <code>sqrt(x*x + y*y)</code>. This avoids unnecessary
+overflow or underflow when coordinate components have very different magnitudes.</p>
+<h2 id="degenerate-fit-data">Degenerate fit data</h2>
+<p>Exact global interpolation is poorly conditioned when distinct fit constraints
+collapse to almost the same parameter. The solver rejects consecutive chords
+whose length is below:</p>
+<pre><code class="language-text">RelativePointTolerance * totalChordLength
+</code></pre>
+<p>The default is <code>1e-12</code>.</p>
+<p>This is scale-relative: a model expressed in micrometres and the same model
+expressed in metres receive equivalent geometric treatment.</p>
+<h2 id="pivot-checks">Pivot checks</h2>
+<p>The cubic interpolation matrix is expected to be well behaved for valid strictly
+increasing parameters, but production code should not silently divide by a tiny
+or non-finite pivot. The solver checks each eliminated diagonal against
+<code>SolverPivotTolerance</code> and reports an explicit failure if the system becomes
+numerically unsafe.</p>
+<h2 id="parameterization-and-conditioning">Parameterization and conditioning</h2>
+<p>Chord-length and centripetal parameterization usually produce better geometric
+behavior than uniform parameters for irregular point spacing. Centripetal
+parameterization is particularly useful when one or two chords are much longer
+than their neighbors.</p>
+<p>Parameterization affects shape and matrix coefficients. It does not change the
+interpolation invariant:</p>
+<pre><code class="language-text">C(u[k]) = Q[k]
+</code></pre>
+<h2 id="tangent-magnitude">Tangent magnitude</h2>
+<p>When only tangent direction is known, <code>Direction</code> mode normalizes each input
+vector and uses total chord length as the default derivative magnitude. This is a
+shape heuristic, not an intrinsic property of B-splines.</p>
+<p>For CAD data that already provides a derivative vector with meaningful magnitude,
+use <code>BSplineTangentMode.Derivative</code>.</p>
+<h2 id="exact-rendering-conversion">Exact rendering conversion</h2>
+<p>A cubic B-spline is piecewise cubic polynomial. <code>ToBezierSegments()</code> samples each
+knot span at four exact parameter values and inverts the cubic Bernstein basis.
+No flattening tolerance or iterative fitting is involved, and the conversion also
+works when a directly constructed cubic curve contains repeated interior knots.</p>
+<h2 id="production-test-coverage">Production test coverage</h2>
+<p>The test suite covers:</p>
+<ul>
+<li>known control-net reference data</li>
+<li>fit-point interpolation error</li>
+<li>start/end derivative constraints</li>
+<li>direction and derivative tangent modes</li>
+<li>chord-length, centripetal, and uniform parameterization</li>
+<li>two-point cubic Hermite reduction</li>
+<li>exact B-spline-to-Bezier equivalence across every span</li>
+<li>large multi-thousand-point interpolation</li>
+<li>invalid and degenerate input rejection</li>
+</ul>
+<p>The large-input test validates the linear control-net and knot-size invariants
+without relying on fragile wall-clock timing assertions.</p>
+
+      </div>
+  </div>
+</div>
+
+        </section>
+        <footer>
+          <hr>
+          <p>Copyright &copy; 2026, Wieslaw Soltes aka <a href="https://github.com/wieslawsoltes">wieslawsoltes</a> - Content licensed under the <a href="https://github.com/wieslawsoltes/Spline/blob/main/LICENSE">MIT license</a> | Site generated by <a href="https://github.com/lunet-io/lunet">lunet</a> hosted on <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>

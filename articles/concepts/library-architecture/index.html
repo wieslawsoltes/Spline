@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Library Architecture | Spline">
-<meta name="twitter:description" content="Library Architecture Spline is structured around a small set of geometry responsibilities that can be reused without any Avalonia dependency. Core building blocks Vec2 provides the package's basic 2D vector type. MathUtils and Polynomial support low-level numerical operations. CubicBezier and TwoCubics model Bezier control geometry and segment transformations. BezierPath represents rendered output as commands and also supports distance-based hit testing. Spline, TwoParamCurve, MyCurve, and TwoParamSpline form the spline solving and...">
+<meta name="twitter:description" content="Library Architecture Spline is structured around a small set of geometry responsibilities that can be reused without any Avalonia dependency. Core building blocks Vec2 provides the package's basic 2D vector type. MathUtils and Polynomial support low-level numerical operations. CubicBezier and TwoCubics model Bezier control geometry and segment transformations. BezierPath represents rendered output as commands and also supports distance-based hit testing. Spline, TwoParamCurve, MyCurve, and TwoParamSpline form the existing curvature-oriented fair-spline...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="Library Architecture | Spline">
 <meta property="og:title" content="Library Architecture | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="Library Architecture Spline is structured around a small set of geometry responsibilities that can be reused without any Avalonia dependency. Core building blocks Vec2 provides the package's basic 2D vector type. MathUtils and Polynomial support low-level numerical operations. CubicBezier and TwoCubics model Bezier control geometry and segment transformations. BezierPath represents rendered output as commands and also supports distance-based hit testing. Spline, TwoParamCurve, MyCurve, and TwoParamSpline form the spline solving and...">
+<meta property="og:description" content="Library Architecture Spline is structured around a small set of geometry responsibilities that can be reused without any Avalonia dependency. Core building blocks Vec2 provides the package's basic 2D vector type. MathUtils and Polynomial support low-level numerical operations. CubicBezier and TwoCubics model Bezier control geometry and segment transformations. BezierPath represents rendered output as commands and also supports distance-based hit testing. Spline, TwoParamCurve, MyCurve, and TwoParamSpline form the existing curvature-oriented fair-spline...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="Library Architecture | Spline">
   </head>
@@ -112,6 +112,8 @@
             <li id='menu-item-concepts-5' class='menu-item '>
               <span class='menu-item-row'><a href='/Spline/articles/concepts/solver-and-curvature/' class='menu-link  '>Solver and Curvature</a></span>  </li>
             <li id='menu-item-concepts-6' class='menu-item '>
+              <span class='menu-item-row'><a href='/Spline/articles/concepts/cad-bspline-vs-spline/' class='menu-link  '>Spline Solver vs CAD B-Spline</a></span>  </li>
+            <li id='menu-item-concepts-7' class='menu-item '>
               <span class='menu-item-row'><a href='/Spline/articles/concepts/rendering-and-hit-testing/' class='menu-link  '>Rendering and Hit Testing</a></span>  </li>
           </ol>
 
@@ -170,13 +172,34 @@ can be reused without any Avalonia dependency.</p>
 transformations.</li>
 <li><code>BezierPath</code> represents rendered output as commands and also supports
 distance-based hit testing.</li>
-<li><code>Spline</code>, <code>TwoParamCurve</code>, <code>MyCurve</code>, and <code>TwoParamSpline</code> form the spline
-solving and rendering pipeline.</li>
+<li><code>Spline</code>, <code>TwoParamCurve</code>, <code>MyCurve</code>, and <code>TwoParamSpline</code> form the existing
+curvature-oriented fair-spline solving and rendering pipeline.</li>
+<li><code>GlobalBSpline</code> is the CAD-oriented interpolation layer. It converts fit
+points plus endpoint tangents into an explicit cubic B-spline control net in
+O(n) time.</li>
+<li><code>BSplineCurve</code> is the canonical non-rational B-spline geometry layer. It owns
+degree, control points, knots, unit weights, de Boor evaluation, derivatives,
+and exact cubic Bezier conversion.</li>
 <li><code>CurveGrid</code> stores an interpolated grid of curve masters for the tuner
 workflow.</li>
 <li><code>PolylineUtils</code> provides headless simplification and resampling utilities for
 converting traced input into spline control points.</li>
 </ul>
+<h2 id="two-independent-spline-contracts">Two independent spline contracts</h2>
+<p>The fair-spline and CAD B-spline subsystems intentionally share low-level
+geometry but not their solver state:</p>
+<pre><code class="language-text">Spline.CP[]
+    -&gt; Spline / TwoParamSpline
+    -&gt; tangent + curvature solve
+    -&gt; BezierPath
+
+fit Vec2[] + endpoint tangents
+    -&gt; GlobalBSpline
+    -&gt; BSplineCurve { degree, control points, knots, weights }
+    -&gt; de Boor evaluation or exact BezierPath conversion
+</code></pre>
+<p>This avoids forcing the existing fair-spline solver into B-spline semantics and
+avoids reducing CAD geometry to a rendering-only Bezier chain.</p>
 <h2 id="separation-of-concerns">Separation of concerns</h2>
 <p>The package intentionally excludes:</p>
 <ul>
@@ -184,17 +207,26 @@ converting traced input into spline control points.</li>
 <li>app settings persistence</li>
 <li>input handling and editing UX</li>
 <li>file-picker and rendering-surface integration</li>
+<li>product-specific CAD parsers and serializers</li>
 </ul>
-<p>Those responsibilities stay in <code>samples/DemoSpline</code>, which acts as the
-interactive host for the library.</p>
-<h2 id="typical-consumer-flow">Typical consumer flow</h2>
-<p>Most consumers only need to:</p>
+<p>Those responsibilities stay in host applications. <code>samples/DemoSpline</code> is the
+interactive fair-spline host, while <code>samples/GlobalBSplineSample</code> is a focused
+headless example of the CAD-oriented API.</p>
+<h2 id="typical-fair-spline-consumer-flow">Typical fair-spline consumer flow</h2>
 <ol>
-<li>create <code>Spline.CP</code> control points</li>
+<li>create <code>Spline.CP</code> interpolation points</li>
 <li>construct a <code>Spline</code></li>
 <li>call <code>Solve()</code></li>
 <li>optionally call <code>ComputeCurvatureBlending()</code></li>
 <li>render via <code>Render()</code> or <code>RenderSvg()</code></li>
+</ol>
+<h2 id="typical-cad-b-spline-consumer-flow">Typical CAD B-spline consumer flow</h2>
+<ol>
+<li>collect fit points and endpoint tangents</li>
+<li>call <code>GlobalBSpline.Interpolate</code> or <code>InterpolateDetailed</code></li>
+<li>preserve <code>Degree</code>, <code>ControlPoints</code>, <code>Knots</code>, and <code>Weights</code> for CAD geometry</li>
+<li>evaluate with <code>BSplineCurve.Evaluate()</code> or <code>EvaluateDerivative()</code></li>
+<li>convert to <code>BezierPath</code>/SVG only at the rendering boundary when needed</li>
 </ol>
 
       </div>

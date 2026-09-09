@@ -100,7 +100,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <div class='lunet-menu-async' data-lunet-menu-partial='/Spline/partials/menus/menu-guides.3c2cbbbf8686e2f43312b1ee052108fb.html' data-lunet-menu-open='menu-id-guides-0' data-lunet-menu-active='menu-item-guides-2,menu-item-guides-0'><div class='menu-loading text-body-secondary small'>Loading menu…</div></div>
+          <div class='lunet-menu-async' data-lunet-menu-partial='/Spline/partials/menus/menu-guides.2bf7fe549304d6a98c9020f952a438c9.html' data-lunet-menu-open='menu-id-guides-0' data-lunet-menu-active='menu-item-guides-2,menu-item-guides-0'><div class='menu-loading text-body-secondary small'>Loading menu…</div></div>
         </div>
       </nav>
       <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
@@ -161,7 +161,9 @@ such as <code>using SplinePath = global::Spline.Spline;</code> keeps consumer co
 <ul>
 <li>vector math through <code>Vec2</code></li>
 <li>Bezier helpers such as <code>BezierPath</code> and <code>CubicBezier</code></li>
-<li>spline solving through <code>Spline</code>, <code>TwoParamCurve</code>, and <code>TwoParamSpline</code></li>
+<li>curvature-oriented fair-spline solving through <code>Spline</code>, <code>TwoParamCurve</code>, and <code>TwoParamSpline</code></li>
+<li>CAD-style global cubic B-spline interpolation through <code>GlobalBSpline</code></li>
+<li>canonical B-spline geometry/evaluation through <code>BSplineCurve</code></li>
 <li>curve-grid interpolation through <code>CurveGrid</code> and <code>TwoCubics</code></li>
 <li>headless polyline simplification with <code>PolylineUtils</code></li>
 </ul>
@@ -170,11 +172,12 @@ such as <code>using SplinePath = global::Spline.Spline;</code> keeps consumer co
 <li>application settings persistence</li>
 <li>Avalonia windows, views, and interaction logic</li>
 <li>demo-specific editing and visualization behavior</li>
+<li>product-specific CAD file parsing/serialization</li>
 </ul>
 <h2 id="packaging-model">Packaging model</h2>
 <p>The package is built from <code>src/Spline/Spline.csproj</code> and includes both a
 NuGet package and a symbol package during <code>dotnet pack</code>.</p>
-<h2 id="typical-consumer-flow">Typical consumer flow</h2>
+<h2 id="fair-spline-consumer-flow">Fair-spline consumer flow</h2>
 <pre><code class="language-csharp">using Spline;
 using SplinePath = global::Spline.Spline;
 
@@ -192,6 +195,34 @@ spline.ComputeCurvatureBlending();
 BezierPath path = spline.Render();
 string svg = path.ToSvgPath();
 </code></pre>
+<h2 id="cad-style-b-spline-consumer-flow">CAD-style B-spline consumer flow</h2>
+<pre><code class="language-csharp">using Spline;
+
+var fitPoints = new[]
+{
+    new Vec2(0, 0),
+    new Vec2(60, 40),
+    new Vec2(120, 10),
+    new Vec2(180, 0),
+};
+
+var result = GlobalBSpline.InterpolateDetailed(
+    fitPoints,
+    startTangent: new Vec2(1, 0.2),
+    endTangent: new Vec2(1, -0.1));
+
+BSplineCurve curve = result.Curve;
+
+IReadOnlyList&lt;Vec2&gt; cadControlPoints = curve.ControlPoints;
+IReadOnlyList&lt;double&gt; knots = curve.Knots;
+IReadOnlyList&lt;double&gt; weights = curve.Weights;
+
+string svg = curve.ToSvgPath();
+</code></pre>
+<p>Use <code>GlobalBSpline</code> when fit-point interpolation must produce explicit
+B-spline degree/control-point/knot semantics. Use the existing <code>Spline</code> solver
+when its curvature-oriented fairing behavior and editing model are the desired
+contract.</p>
 <h2 id="when-to-use-demospline-instead">When to use DemoSpline instead</h2>
 <p>Reach for <code>samples/DemoSpline</code> when you need:</p>
 <ul>
@@ -200,6 +231,8 @@ string svg = path.ToSvgPath();
 <li>tuner-based exploration of <code>CurveGrid</code> and <code>TwoCubics</code></li>
 <li>live confirmation that a package change still behaves as expected</li>
 </ul>
+<p>For a focused headless example of CAD-style interpolation, use
+<code>samples/GlobalBSplineSample</code>.</p>
 
       </div>
   </div>

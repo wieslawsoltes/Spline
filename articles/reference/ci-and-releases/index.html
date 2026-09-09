@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="CI and Releases | Spline">
-<meta name="twitter:description" content="CI and Releases Build workflow The repository build.yml workflow restores the solution, builds in Release, packs Spline, runs the test project as part of the solution build, and uploads package artifacts for inspection. Release workflow The release.yml workflow is triggered by v* tags or manual dispatch. It: determines the release version builds the solution in Release packs Spline publishes packages to NuGet creates a GitHub release with package artifacts attached...">
+<meta name="twitter:description" content="CI and Releases Build workflow The repository build.yml workflow restores the solution, builds in Release, runs Spline.Tests, packs Spline, and uploads package artifacts for inspection. The test step is explicit so compilation alone cannot make a pull request green. Release workflow The release.yml workflow is triggered by v* tags or manual dispatch. It: determines the release version builds the solution in Release runs the complete test project against the release...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta name="twitter:image:alt" content="CI and Releases | Spline">
 <meta property="og:title" content="CI and Releases | Spline">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Spline">
-<meta property="og:description" content="CI and Releases Build workflow The repository build.yml workflow restores the solution, builds in Release, packs Spline, runs the test project as part of the solution build, and uploads package artifacts for inspection. Release workflow The release.yml workflow is triggered by v* tags or manual dispatch. It: determines the release version builds the solution in Release packs Spline publishes packages to NuGet creates a GitHub release with package artifacts attached...">
+<meta property="og:description" content="CI and Releases Build workflow The repository build.yml workflow restores the solution, builds in Release, runs Spline.Tests, packs Spline, and uploads package artifacts for inspection. The test step is explicit so compilation alone cannot make a pull request green. Release workflow The release.yml workflow is triggered by v* tags or manual dispatch. It: determines the release version builds the solution in Release runs the complete test project against the release...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Spline/img/project-banner.png">
 <meta property="og:image:alt" content="CI and Releases | Spline">
   </head>
@@ -166,22 +166,27 @@
 <h1 id="ci-and-releases">CI and Releases</h1>
 <h2 id="build-workflow">Build workflow</h2>
 <p>The repository <code>build.yml</code> workflow restores the solution, builds in <code>Release</code>,
-packs <code>Spline</code>, runs the test project as part of the solution build, and uploads
-package artifacts for inspection.</p>
+runs <code>Spline.Tests</code>, packs <code>Spline</code>, and uploads package artifacts for inspection.
+The test step is explicit so compilation alone cannot make a pull request green.</p>
 <h2 id="release-workflow">Release workflow</h2>
 <p>The <code>release.yml</code> workflow is triggered by <code>v*</code> tags or manual dispatch. It:</p>
 <ul>
 <li>determines the release version</li>
 <li>builds the solution in <code>Release</code></li>
-<li>packs <code>Spline</code></li>
+<li>runs the complete test project against the release build</li>
+<li>packs <code>Spline</code> only after tests succeed</li>
 <li>publishes packages to NuGet</li>
 <li>creates a GitHub release with package artifacts attached</li>
 </ul>
 <p>NuGet publishing requires the <code>NUGET_API_KEY</code> secret in the <code>nuget</code>
 environment.</p>
 <h2 id="docs-workflow">Docs workflow</h2>
-<p>The <code>docs.yml</code> workflow restores local tools, builds the Lunet articles and the
-generated API reference, and publishes <code>site/.lunet/build/www</code> to GitHub Pages.</p>
+<p>The <code>docs.yml</code> workflow restores local tools and runs <code>check-docs.sh</code>, which builds
+and validates the Lunet articles plus generated API reference.</p>
+<p>Documentation validation runs on pull requests targeting <code>main</code>/<code>master</code>. Pull
+requests do <strong>not</strong> deploy. Pushes to <code>main</code>/<code>master</code> and manual workflow runs
+perform the same validation and then publish <code>site/.lunet/build/www</code> to GitHub
+Pages.</p>
 
       </div>
   </div>
