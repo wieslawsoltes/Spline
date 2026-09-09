@@ -11,7 +11,7 @@
     <Description>Reusable fair-spline and CAD-style global B-spline geometry, interpolation, evaluation, and Bezier path utilities for .NET.</Description>
     <PackageTags>spline;bspline;nurbs;cad;bezier;geometry;curves;interpolation</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Introduce production global cubic B-spline interpolation from fit points and endpoint tangents, canonical CAD B-spline geometry, de Boor evaluation and derivatives, exact cubic Bezier conversion, discontinuous-knot-safe path export, comprehensive tests, samples, and documentation.</PackageReleaseNotes>
+    <PackageReleaseNotes>Spline 0.2.0 introduces production global cubic B-spline interpolation from fit points and endpoint tangents, canonical CAD B-spline geometry, de Boor evaluation and derivatives, exact cubic Bezier conversion, discontinuous-knot-safe path export, comprehensive tests, samples, and documentation.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
