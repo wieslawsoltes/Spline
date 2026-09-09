@@ -8,10 +8,10 @@
     <RootNamespace>Spline</RootNamespace>
     <Title>Spline</Title>
     <Version>0.1.0</Version>
-    <Description>Reusable spline geometry, curvature-aware rendering, and Bezier path utilities for .NET.</Description>
-    <PackageTags>spline;bezier;geometry;curves</PackageTags>
+    <Description>Reusable fair-spline and CAD-style global B-spline geometry, interpolation, evaluation, and Bezier path utilities for .NET.</Description>
+    <PackageTags>spline;bspline;nurbs;cad;bezier;geometry;curves;interpolation</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Rename the package and public namespace to Spline, and expand docs, API reference, and test coverage.</PackageReleaseNotes>
+    <PackageReleaseNotes>Add production global cubic B-spline interpolation from fit points and endpoint tangents, canonical B-spline geometry, exact Bezier conversion, tests, samples, and documentation.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

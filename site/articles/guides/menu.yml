@@ -1,6 +1,7 @@
 guides:
   - {path: readme.md, title: "Guides"}
   - {path: using-spline.md, title: "Using Spline"}
+  - {path: global-bspline.md, title: "Global B-Spline Interpolation"}
   - {path: demospline-workflow.md, title: "DemoSpline Workflow"}
   - {path: rendering-and-svg.md, title: "Rendering and SVG Export"}
   - {path: hit-testing-and-editing.md, title: "Hit Testing and Editing"}

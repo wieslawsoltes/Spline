@@ -22,7 +22,9 @@ such as `using SplinePath = global::Spline.Spline;` keeps consumer code clear.
 
 - vector math through `Vec2`
 - Bezier helpers such as `BezierPath` and `CubicBezier`
-- spline solving through `Spline`, `TwoParamCurve`, and `TwoParamSpline`
+- curvature-oriented fair-spline solving through `Spline`, `TwoParamCurve`, and `TwoParamSpline`
+- CAD-style global cubic B-spline interpolation through `GlobalBSpline`
+- canonical B-spline geometry/evaluation through `BSplineCurve`
 - curve-grid interpolation through `CurveGrid` and `TwoCubics`
 - headless polyline simplification with `PolylineUtils`
 
@@ -31,13 +33,14 @@ such as `using SplinePath = global::Spline.Spline;` keeps consumer code clear.
 - application settings persistence
 - Avalonia windows, views, and interaction logic
 - demo-specific editing and visualization behavior
+- product-specific CAD file parsing/serialization
 
 ## Packaging model
 
 The package is built from `src/Spline/Spline.csproj` and includes both a
 NuGet package and a symbol package during `dotnet pack`.
 
-## Typical consumer flow
+## Fair-spline consumer flow
 
 ```csharp
 using Spline;
@@ -58,6 +61,38 @@ BezierPath path = spline.Render();
 string svg = path.ToSvgPath();
 ```
 
+## CAD-style B-spline consumer flow
+
+```csharp
+using Spline;
+
+var fitPoints = new[]
+{
+    new Vec2(0, 0),
+    new Vec2(60, 40),
+    new Vec2(120, 10),
+    new Vec2(180, 0),
+};
+
+var result = GlobalBSpline.InterpolateDetailed(
+    fitPoints,
+    startTangent: new Vec2(1, 0.2),
+    endTangent: new Vec2(1, -0.1));
+
+BSplineCurve curve = result.Curve;
+
+IReadOnlyList<Vec2> cadControlPoints = curve.ControlPoints;
+IReadOnlyList<double> knots = curve.Knots;
+IReadOnlyList<double> weights = curve.Weights;
+
+string svg = curve.ToSvgPath();
+```
+
+Use `GlobalBSpline` when fit-point interpolation must produce explicit
+B-spline degree/control-point/knot semantics. Use the existing `Spline` solver
+when its curvature-oriented fairing behavior and editing model are the desired
+contract.
+
 ## When to use DemoSpline instead
 
 Reach for `samples/DemoSpline` when you need:
@@ -66,3 +101,6 @@ Reach for `samples/DemoSpline` when you need:
 - freehand tracing and curve fitting validation
 - tuner-based exploration of `CurveGrid` and `TwoCubics`
 - live confirmation that a package change still behaves as expected
+
+For a focused headless example of CAD-style interpolation, use
+`samples/GlobalBSplineSample`.
