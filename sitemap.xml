@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/packages</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/curve-families-and-parameterization</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
@@ -13,7 +9,19 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/testing-and-validation</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/library-architecture</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/package-and-assembly</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -25,27 +33,11 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/testing-and-validation</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/rendering-and-hit-testing</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/cad-bspline-vs-spline</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/curve-grid-and-tuning</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -57,11 +49,7 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/api-coverage-index</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/ci-and-releases</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/curve-grid-and-tuning</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -81,11 +69,11 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/demospline-workflow</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/global-bspline-numerics</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/advanced/global-bspline-numerics</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/demospline-workflow</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -93,7 +81,7 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/json-format</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/project-structure</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -101,7 +89,7 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/migration-from-spline-core</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/json-format</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -109,7 +97,15 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/global-bspline</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/migration-from-spline-core</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/packages</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -117,7 +113,11 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/installation</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/ci-and-releases</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/api-coverage-index</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -125,11 +125,11 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/using-spline</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/installation</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/overview</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/using-spline</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -137,15 +137,11 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started/overview</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
     <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/getting-started</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/project-structure</loc>
-    <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/reference/package-and-assembly</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
@@ -153,7 +149,11 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/library-architecture</loc>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/guides/global-bspline</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://wieslawsoltes.github.io/Spline/Spline/articles/concepts/cad-bspline-vs-spline</loc>
     <lastmod>2026-09-09</lastmod>
   </url>
 </urlset>
