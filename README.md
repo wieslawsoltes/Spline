@@ -25,7 +25,7 @@ The NuGet package ID and public namespace are both `Spline`.
 - The existing Levien-derived `Spline` solver remains available for curvature-oriented fair spline construction.
 - `DemoSpline` provides an Avalonia desktop front end for editing, visualization, and experimentation.
 - `samples/GlobalBSplineSample` demonstrates CAD-style interpolation, control-net inspection, knot output, and SVG conversion.
-- GitHub Actions workflows are included for CI validation, NuGet publishing, and GitHub release creation.
+- GitHub Actions workflows are included for CI validation, documentation validation/deployment, NuGet publishing, and GitHub release creation.
 - A Lunet-based documentation site is included for conceptual docs, workflow docs, and generated API reference.
 - NuGet symbol packages are produced alongside the main package for debugging support.
 
@@ -128,11 +128,11 @@ behavior is the desired model. The documentation contains a detailed comparison.
 
 ## CI and Release
 
-The repository includes two GitHub Actions workflows:
+The repository includes three GitHub Actions workflows:
 
 - `build.yml` restores, builds, tests, and packs `Spline` on pushes and pull requests.
-- `release.yml` builds a tagged release, publishes NuGet packages, and creates a GitHub release with package artifacts attached.
-- `docs.yml` builds the Lunet site and deploys it to GitHub Pages.
+- `release.yml` builds, tests, and packs a tagged release, publishes NuGet packages, and creates a GitHub release with package artifacts attached.
+- `docs.yml` validates documentation on pull requests and builds/deploys the Lunet site to GitHub Pages after changes land on `main`/`master`.
 
 The docs site includes article-based documentation and generated API docs for
 the `Spline` namespace.
