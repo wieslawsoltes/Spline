@@ -8,8 +8,8 @@ description: GitHub Actions workflows used by the repository.
 ## Build workflow
 
 The repository `build.yml` workflow restores the solution, builds in `Release`,
-packs `Spline`, runs the test project as part of the solution build, and uploads
-package artifacts for inspection.
+runs `Spline.Tests`, packs `Spline`, and uploads package artifacts for inspection.
+The test step is explicit so compilation alone cannot make a pull request green.
 
 ## Release workflow
 
@@ -17,7 +17,8 @@ The `release.yml` workflow is triggered by `v*` tags or manual dispatch. It:
 
 - determines the release version
 - builds the solution in `Release`
-- packs `Spline`
+- runs the complete test project against the release build
+- packs `Spline` only after tests succeed
 - publishes packages to NuGet
 - creates a GitHub release with package artifacts attached
 
@@ -26,5 +27,10 @@ environment.
 
 ## Docs workflow
 
-The `docs.yml` workflow restores local tools, builds the Lunet articles and the
-generated API reference, and publishes `site/.lunet/build/www` to GitHub Pages.
+The `docs.yml` workflow restores local tools and runs `check-docs.sh`, which builds
+and validates the Lunet articles plus generated API reference.
+
+Documentation validation runs on pull requests targeting `main`/`master`. Pull
+requests do **not** deploy. Pushes to `main`/`master` and manual workflow runs
+perform the same validation and then publish `site/.lunet/build/www` to GitHub
+Pages.

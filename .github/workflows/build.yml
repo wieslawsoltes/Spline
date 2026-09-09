@@ -47,6 +47,9 @@ jobs:
       - name: Build
         run: dotnet build $SOLUTION_FILE -c Release --no-restore
 
+      - name: Test
+        run: dotnet test tests/Spline.Tests/Spline.Tests.csproj -c Release --no-build
+
       - name: Pack
         run: dotnet pack $PACKAGE_PROJECT -c Release --no-build -o $PACKAGE_OUTPUT
 

@@ -3,4 +3,5 @@ advanced:
   - {path: freehand-tracing.md, title: "Freehand Tracing"}
   - {path: curve-grid-and-tuning.md, title: "Curve Grid and Tuning"}
   - {path: numerical-behavior.md, title: "Numerical Behavior"}
+  - {path: global-bspline-numerics.md, title: "Global B-Spline Numerics and Performance"}
   - {path: testing-and-parity.md, title: "Testing and Parity"}

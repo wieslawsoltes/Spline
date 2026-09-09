@@ -23,6 +23,15 @@ main package namespace at [Spline Namespace](../../api/Spline/).
 - `HitTestResult`
 - `CubicBezier`
 
+### CAD B-spline types
+
+- `BSplineCurve`
+- `GlobalBSpline`
+- `GlobalBSplineResult`
+- `GlobalBSplineOptions`
+- `BSplineParameterization`
+- `BSplineTangentMode`
+
 ### Curve family and interpolation types
 
 - `TwoParamCurve`
@@ -30,7 +39,7 @@ main package namespace at [Spline Namespace](../../api/Spline/).
 - `TwoCubics`
 - `CurveGrid`
 
-### Spline solving types
+### Fair-spline solving types
 
 - `TwoParamSpline`
 - `Spline`
@@ -42,6 +51,8 @@ Use the generated API docs for signatures, members, and assembly metadata. Use
 the article docs for:
 
 - conceptual explanations
+- global B-spline usage and CAD semantics
+- numerical behavior and performance
 - workflow guidance
 - migration notes
 - validation expectations

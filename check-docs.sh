@@ -34,6 +34,10 @@ test -f "${DOC_ROOT}/api/index.html"
 test -f "${DOC_ROOT}/api/Spline/index.html"
 test -f "${DOC_ROOT}/api/Spline.Spline/index.html"
 test -f "${DOC_ROOT}/api/Spline.Vec2/index.html"
+test -f "${DOC_ROOT}/api/Spline.BSplineCurve/index.html"
+test -f "${DOC_ROOT}/api/Spline.GlobalBSpline/index.html"
+test -f "${DOC_ROOT}/api/Spline.GlobalBSplineOptions/index.html"
+test -f "${DOC_ROOT}/api/Spline.GlobalBSplineResult/index.html"
 test -f "${DOC_ROOT}/articles/index.html"
 test -f "${DOC_ROOT}/articles/getting-started/index.html"
 test -f "${DOC_ROOT}/articles/getting-started/overview/index.html"
@@ -45,9 +49,11 @@ test -f "${DOC_ROOT}/articles/concepts/library-architecture/index.html"
 test -f "${DOC_ROOT}/articles/concepts/geometry-primitives/index.html"
 test -f "${DOC_ROOT}/articles/concepts/curve-families-and-parameterization/index.html"
 test -f "${DOC_ROOT}/articles/concepts/solver-and-curvature/index.html"
+test -f "${DOC_ROOT}/articles/concepts/cad-bspline-vs-spline/index.html"
 test -f "${DOC_ROOT}/articles/concepts/rendering-and-hit-testing/index.html"
 test -f "${DOC_ROOT}/articles/guides/index.html"
 test -f "${DOC_ROOT}/articles/guides/using-spline/index.html"
+test -f "${DOC_ROOT}/articles/guides/global-bspline/index.html"
 test -f "${DOC_ROOT}/articles/guides/demospline-workflow/index.html"
 test -f "${DOC_ROOT}/articles/guides/rendering-and-svg/index.html"
 test -f "${DOC_ROOT}/articles/guides/hit-testing-and-editing/index.html"
@@ -60,6 +66,7 @@ test -f "${DOC_ROOT}/articles/advanced/index.html"
 test -f "${DOC_ROOT}/articles/advanced/freehand-tracing/index.html"
 test -f "${DOC_ROOT}/articles/advanced/curve-grid-and-tuning/index.html"
 test -f "${DOC_ROOT}/articles/advanced/numerical-behavior/index.html"
+test -f "${DOC_ROOT}/articles/advanced/global-bspline-numerics/index.html"
 test -f "${DOC_ROOT}/articles/advanced/testing-and-parity/index.html"
 test -f "${DOC_ROOT}/articles/reference/index.html"
 test -f "${DOC_ROOT}/articles/reference/package-and-assembly/index.html"
@@ -98,6 +105,16 @@ fi
 
 if ! search_generated_fixed 'Namespace' "${DOC_ROOT}/api/Spline/index.html" >/dev/null; then
     echo "Generated API namespace page is missing namespace content."
+    exit 1
+fi
+
+if ! search_generated_fixed 'ControlPoints' "${DOC_ROOT}/api/Spline.BSplineCurve/index.html" >/dev/null; then
+    echo "Generated BSplineCurve API page is missing canonical CAD geometry members."
+    exit 1
+fi
+
+if ! search_generated_fixed 'Interpolate' "${DOC_ROOT}/api/Spline.GlobalBSpline/index.html" >/dev/null; then
+    echo "Generated GlobalBSpline API page is missing interpolation methods."
     exit 1
 fi
 

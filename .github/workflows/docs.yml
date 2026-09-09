@@ -5,6 +5,10 @@ on:
     branches:
       - master
       - main
+  pull_request:
+    branches:
+      - master
+      - main
   workflow_dispatch:
 
 permissions:
@@ -32,10 +36,11 @@ jobs:
       - name: Restore local tools
         run: dotnet tool restore
 
-      - name: Build docs
+      - name: Build and validate docs
         run: bash ./check-docs.sh
 
       - name: Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
