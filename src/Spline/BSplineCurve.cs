@@ -221,6 +221,7 @@ public sealed class BSplineCurve
 
     /// <summary>
     /// Converts a cubic B-spline to the package's Bezier path representation.
+    /// Fully discontinuous interior knots start a new path subpath.
     /// </summary>
     public BezierPath ToBezierPath()
     {
@@ -229,12 +230,27 @@ public sealed class BSplineCurve
         if (segments.Count == 0)
             return path;
 
-        var first = segments[0].C;
-        path.MoveTo(first[0], first[1]);
-        for (int i = 0; i < segments.Count; i++)
+        int segmentIndex = 0;
+        int previousSpan = -1;
+
+        for (int span = Degree; span < _controlPoints.Length; span++)
         {
-            var c = segments[i].C;
+            double start = _knots[span];
+            double end = _knots[span + 1];
+            if (!(end > start))
+                continue;
+
+            var c = segments[segmentIndex++].C;
+
+            // Consecutive non-empty spans are separated by exactly the knot
+            // multiplicity. A multiplicity of degree + 1 (or greater) is a
+            // C^-1 discontinuity, so the Bezier representation must begin a
+            // new subpath rather than implicitly connecting the two spans.
+            if (previousSpan < 0 || span - previousSpan >= Degree + 1)
+                path.MoveTo(c[0], c[1]);
+
             path.CurveTo(c[2], c[3], c[4], c[5], c[6], c[7]);
+            previousSpan = span;
         }
 
         return path;
